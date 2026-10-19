@@ -1,0 +1,615 @@
+2026-10-18 22:05:22,063 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-19T03:20:03+00:00).
+2026-10-19 04:13:42,386 WARNING No se pudo leer Action Network (HTTPError); RLM usará solo public_betting.csv
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Moneyline | ajuste menor 54.3% -> 55.1%
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:00) | draftkings Moneyline | ajuste menor 63.1% -> 62.2%
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Moneyline | ajuste menor 70.5% -> 71.0%
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Spread | solo cambio de juice -105 -> -110
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Moneyline | ajuste menor 56.4% -> 57.2%
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Detroit Pistons (20/11 18:40) | draftkings Spread | solo cambio de juice -105 -> -110
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Spread | solo cambio de juice -108 -> +105
+2026-10-19 04:13:42,408 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Spread | solo cambio de juice -102 -> -110
+2026-10-19 04:13:42,409 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Spread | solo cambio de juice -115 -> -110
+2026-10-19 04:13:42,409 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Total | solo cambio de juice -112 -> -110
+2026-10-19 04:13:42,409 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Moneyline | ajuste menor 60.9% -> 61.6%
+2026-10-19 04:13:42,409 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-19 04:13:42,410 INFO Corrida OK: 46 partidos, 276 cotizaciones, 12 alertas nuevas | créditos: esta llamada=3, usados=29, restantes=471
+2026-10-19 04:13:42,410 INFO Splits de Action Network: 0 mercados con % de tickets
+2026-10-19 04:13:42,427 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-19 11:08:41,347 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Moneyline | 87% de tickets en el local pero la línea se movió en contra: 58.3% -> 56.4%
+2026-10-19 11:08:41,347 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Spread | 74% de tickets en el visitante pero la línea se movió en contra: -7.5 -> -8.5
+2026-10-19 11:08:41,347 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Moneyline | 73% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 50.4%
+2026-10-19 11:08:41,347 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Total | 68% de tickets en el over pero la línea se movió en contra: 220.5 -> 219.5
+2026-10-19 11:08:41,347 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | 77% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 51.1%
+2026-10-19 11:08:41,347 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Spread | 64% de tickets en el visitante pero la línea se movió en contra: +1.5 -> -1.5
+2026-10-19 11:08:41,347 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Total | 62% de tickets en el over pero la línea se movió en contra: 229.5 -> 228.5
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Spread | solo cambio de juice -118 -> -115
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:00) | draftkings Total | solo cambio de juice -110 -> -112
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Spread | solo cambio de juice -105 -> -102
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Spread | solo cambio de juice -108 -> -112
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Moneyline | rebote 56.4% -> 57.2% -> 56.4%
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Spread | solo cambio de juice -115 -> -108
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Total | rebote 235.5 -> 234.5 -> 235.5
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Moneyline | ajuste menor 51.7% -> 51.1%
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Spread | solo cambio de juice +105 -> -102
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Spread | solo cambio de juice -110 -> -115
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Houston Rockets @ Dallas Mavericks (30/10 18:10) | draftkings Moneyline | ajuste menor 40.0% -> 40.7%
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Spread | solo cambio de juice -110 -> -108
+2026-10-19 11:08:41,347 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Total | solo cambio de juice -110 -> -112
+2026-10-19 11:08:41,350 INFO Corrida OK: 46 partidos, 276 cotizaciones, 20 alertas nuevas | créditos: esta llamada=3, usados=32, restantes=468
+2026-10-19 11:08:41,350 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-19 11:08:41,359 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-19 15:43:48,372 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Moneyline | 88% de tickets en el local pero la línea se movió en contra: 70.5% -> 66.4%
+2026-10-19 15:43:48,373 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | 76% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 51.7%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Total | solo cambio de juice -105 -> -110
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Moneyline | ajuste menor 49.6% -> 48.9%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:00) | draftkings Moneyline | ajuste menor 62.2% -> 61.6%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:00) | draftkings Spread | solo cambio de juice -115 -> -112
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ Minnesota Timberwolves (25/12 19:00) | draftkings Spread | rebote +4.5 -> +3.5 -> +4.5
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Boston Celtics @ Washington Wizards (24/11 19:10) | draftkings Moneyline | ajuste menor 38.4% -> 37.8%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Washington Wizards (30/10 17:10) | draftkings Moneyline | ajuste menor 50.4% -> 51.1%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Detroit Pistons @ Brooklyn Nets (30/10 17:40) | draftkings Spread | solo cambio de juice -118 -> -115
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Denver Nuggets (24/11 21:10) | draftkings Total | rebote 237.5 -> 238.5 -> 237.5
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | rebote 232.5 -> 233.5 -> 232.5
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ Cleveland Cavaliers (06/11 18:40) | draftkings Moneyline | ajuste menor 52.2% -> 51.7%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Spread | solo cambio de juice -102 -> -108
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | New York Knicks @ Philadelphia 76ers (30/10 17:40) | draftkings Moneyline | ajuste menor 52.6% -> 53.2%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Houston Rockets @ Dallas Mavericks (30/10 18:10) | draftkings Moneyline | rebote 40.0% -> 40.7% -> 40.0%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | ajuste menor 51.1% -> 51.7%
+2026-10-19 15:43:48,373 INFO [BAJA] Ruido de mercado | Indiana Pacers @ New Orleans Pelicans (21/10 18:10) | draftkings Total | solo cambio de juice -112 -> -108
+2026-10-19 15:43:48,375 INFO Corrida OK: 46 partidos, 276 cotizaciones, 18 alertas nuevas | créditos: esta llamada=3, usados=35, restantes=465
+2026-10-19 15:43:48,375 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-19 15:43:48,395 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-19 19:02:50,828 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 81% de tickets en el local pero la línea se movió en contra: 56.4% -> 54.3%
+2026-10-19 19:02:50,828 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Total | solo cambio de juice -110 -> -105
+2026-10-19 19:02:50,829 INFO [BAJA] Ruido de mercado | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-19 19:02:50,829 INFO [BAJA] Ruido de mercado | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Spread | solo cambio de juice -115 -> -112
+2026-10-19 19:02:50,829 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Denver Nuggets (24/11 21:10) | draftkings Total | rebote 238.5 -> 237.5 -> 238.5
+2026-10-19 19:02:50,829 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Spread | solo cambio de juice -108 -> -105
+2026-10-19 19:02:50,829 INFO [BAJA] Ruido de mercado | Houston Rockets @ Dallas Mavericks (30/10 18:10) | draftkings Moneyline | rebote 40.7% -> 40.0% -> 40.7%
+2026-10-19 19:02:50,829 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | ajuste menor 55.1% -> 54.3%
+2026-10-19 19:02:50,830 INFO Corrida OK: 46 partidos, 276 cotizaciones, 8 alertas nuevas | créditos: esta llamada=3, usados=47, restantes=453
+2026-10-19 19:02:50,830 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-19 19:02:50,848 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-19 23:58:13,393 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Moneyline | 66% de tickets en el local pero la línea se movió en contra: 49.6% -> 47.8%
+2026-10-19 23:58:13,393 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Total | 68% de tickets en el over pero la línea se movió en contra: 222.5 -> 221.5
+2026-10-19 23:58:13,394 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 81% de tickets en el local pero la línea se movió en contra: 56.4% -> 52.6%
+2026-10-19 23:58:13,394 INFO [MEDIA] Movimiento Gradual | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 56.4% -> 52.6% en 3 movimientos consecutivos
+2026-10-19 23:58:13,394 INFO [BAJA] Ruido de mercado | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Total | solo cambio de juice -110 -> -115
+2026-10-19 23:58:13,394 INFO [BAJA] Ruido de mercado | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Spread | solo cambio de juice -112 -> -115
+2026-10-19 23:58:13,395 INFO Corrida OK: 46 partidos, 276 cotizaciones, 6 alertas nuevas | créditos: esta llamada=3, usados=59, restantes=441
+2026-10-19 23:58:13,395 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-19 23:58:13,419 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-20 05:25:17,959 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Moneyline | 65% de tickets en el local pero la línea se movió en contra: 49.6% -> 47.4%
+2026-10-20 05:25:17,959 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Total | 69% de tickets en el over pero la línea se movió en contra: 222.5 -> 220.5
+2026-10-20 05:25:17,959 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Moneyline | 71% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 57.2%
+2026-10-20 05:25:17,959 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Moneyline | 78% de tickets en el local pero la línea se movió en contra: 56.4% -> 54.3%
+2026-10-20 05:25:17,959 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 80% de tickets en el local pero la línea se movió en contra: 56.4% -> 51.7%
+2026-10-20 05:25:17,959 INFO [MEDIA] Movimiento Gradual | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 56.4% -> 51.7% en 4 movimientos consecutivos
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Moneyline | ajuste menor 47.8% -> 47.4%
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Spread | solo cambio de juice -115 -> -112
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:00) | draftkings Spread | solo cambio de juice -112 -> -110
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Moneyline | ajuste menor 77.7% -> 77.2%
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ Cleveland Cavaliers (06/11 18:40) | draftkings Moneyline | ajuste menor 51.7% -> 52.2%
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Moneyline | ajuste menor 55.1% -> 54.3%
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Total | solo cambio de juice -105 -> -115
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Spread | solo cambio de juice -112 -> -102
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Total | rebote 231.5 -> 232.5 -> 231.5
+2026-10-20 05:25:17,959 INFO [BAJA] Ruido de mercado | Indiana Pacers @ New Orleans Pelicans (21/10 18:10) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-20 05:25:17,961 INFO Corrida OK: 46 partidos, 276 cotizaciones, 16 alertas nuevas | créditos: esta llamada=3, usados=62, restantes=438
+2026-10-20 05:25:17,961 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-20 05:25:17,982 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-20 09:49:11,646 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Total | 70% de tickets en el over pero la línea se movió en contra: 222.5 -> 219.5
+2026-10-20 09:49:11,646 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | 60% de tickets en el over pero la línea se movió en contra: 235.5 -> 232.5
+2026-10-20 09:49:11,646 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 80% de tickets en el local pero la línea se movió en contra: 56.4% -> 50.4%
+2026-10-20 09:49:11,646 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Spread | 61% de tickets en el local pero la línea se movió en contra: -2.5 -> -1.5
+2026-10-20 09:49:11,646 INFO [MEDIA] Movimiento Gradual | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Total | 222.5 -> 219.5 en 3 movimientos consecutivos
+2026-10-20 09:49:11,646 INFO [MEDIA] Movimiento Gradual | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 56.4% -> 50.4% en 5 movimientos consecutivos
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Boston Celtics @ Detroit Pistons (20/10 13:00) | draftkings Spread | solo cambio de juice -112 -> -110
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Moneyline | rebote 77.7% -> 77.2% -> 77.7%
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Spread | rebote -9.5 -> -8.5 -> -9.5
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Total | solo cambio de juice -108 -> -112
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | solo cambio de juice -115 -> -112
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Spread | solo cambio de juice -108 -> -112
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Detroit Pistons (20/11 18:40) | draftkings Moneyline | ajuste menor 51.7% -> 52.2%
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Total | rebote 243.5 -> 242.5 -> 243.5
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Minnesota Timberwolves (30/10 18:10) | draftkings Moneyline | ajuste menor 72.6% -> 72.2%
+2026-10-20 09:49:11,646 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Spread | solo cambio de juice -105 -> -115
+2026-10-20 09:49:11,649 INFO Corrida OK: 46 partidos, 276 cotizaciones, 16 alertas nuevas | créditos: esta llamada=3, usados=65, restantes=435
+2026-10-20 09:49:11,649 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-20 09:49:11,673 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-20 13:58:20,424 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Moneyline | 87% de tickets en el local pero la línea se movió en contra: 58.3% -> 55.1%
+2026-10-20 13:58:20,424 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 78% de tickets en el local pero la línea se movió en contra: 56.4% -> 48.9%
+2026-10-20 13:58:20,424 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Spread | 62% de tickets en el local pero la línea se movió en contra: -2.5 -> +1.5
+2026-10-20 13:58:20,424 INFO [MEDIA] Movimiento Gradual | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 56.4% -> 48.9% en 6 movimientos consecutivos
+2026-10-20 13:58:20,424 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Spread | solo cambio de juice -115 -> -112
+2026-10-20 13:58:20,424 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Total | solo cambio de juice -105 -> -112
+2026-10-20 13:58:20,424 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Total | solo cambio de juice -112 -> -105
+2026-10-20 13:58:20,424 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Total | solo cambio de juice -110 -> -105
+2026-10-20 13:58:20,424 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Total | solo cambio de juice -115 -> -105
+2026-10-20 13:58:20,424 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Moneyline | ajuste menor 51.1% -> 51.7%
+2026-10-20 13:58:20,425 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Total | solo cambio de juice -108 -> -105
+2026-10-20 13:58:20,425 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Total | solo cambio de juice -105 -> -115
+2026-10-20 13:58:20,426 INFO Corrida OK: 45 partidos, 270 cotizaciones, 12 alertas nuevas | créditos: esta llamada=3, usados=68, restantes=432
+2026-10-20 13:58:20,427 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-20 13:58:20,446 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Moneyline | 89% de tickets en el local pero la línea se movió en contra: 63.7% -> 61.6%
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Philadelphia 76ers @ New York Knicks (20/10 17:15) | draftkings Moneyline | 76% de tickets en el local pero la línea se movió en contra: 63.1% -> 60.9%
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Moneyline | 66% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 56.4%
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Total | 73% de tickets en el over pero la línea se movió en contra: 220.5 -> 218.5
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Moneyline | 85% de tickets en el local pero la línea se movió en contra: 70.5% -> 65.8%
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | 60% de tickets en el over pero la línea se movió en contra: 235.5 -> 231.5
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 76% de tickets en el local pero la línea se movió en contra: 56.4% -> 48.3%
+2026-10-20 17:08:44,062 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Total | 63% de tickets en el over pero la línea se movió en contra: 231.5 -> 230.5
+2026-10-20 17:08:44,063 INFO [MEDIA] Movimiento Gradual | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Moneyline | 55.1% -> 48.3% en 6 movimientos consecutivos
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:15) | draftkings Moneyline | ajuste menor 61.6% -> 60.9%
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:15) | draftkings Spread | solo cambio de juice -110 -> -108
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ New York Knicks (20/10 17:15) | draftkings Total | solo cambio de juice -112 -> -108
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Moneyline | ajuste menor 57.2% -> 56.4%
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Moneyline | ajuste menor 66.4% -> 65.8%
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Spread | solo cambio de juice -105 -> -108
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Moneyline | ajuste menor 60.0% -> 60.4%
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Spread | solo cambio de juice -115 -> -112
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Spread | solo cambio de juice -108 -> -105
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Spread | solo cambio de juice -115 -> -112
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Oklahoma City Thunder @ San Antonio Spurs (20/10 19:30) | draftkings Total | solo cambio de juice -115 -> -105
+2026-10-20 17:08:44,063 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Minnesota Timberwolves (30/10 18:10) | draftkings Moneyline | ajuste menor 72.2% -> 72.6%
+2026-10-20 17:08:44,064 INFO Corrida OK: 45 partidos, 270 cotizaciones, 21 alertas nuevas | créditos: esta llamada=3, usados=74, restantes=426
+2026-10-20 17:08:44,064 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-20 17:08:44,080 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-20 19:57:37,986 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Moneyline | 86% de tickets en el local pero la línea se movió en contra: 60.0% -> 56.4%
+2026-10-20 19:57:37,986 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Spread | 62% de tickets en el visitante pero la línea se movió en contra: -8.5 -> -9.5
+2026-10-20 19:57:37,986 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | 70% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 52.2%
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Houston Rockets @ Denver Nuggets (20/11 21:10) | draftkings Spread | solo cambio de juice -110 -> -108
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Spread | solo cambio de juice -112 -> -105
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Total | solo cambio de juice -105 -> -112
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | solo cambio de juice -112 -> -105
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Moneyline | ajuste menor 56.4% -> 57.2%
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Spread | solo cambio de juice -105 -> -102
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Moneyline | ajuste menor 51.7% -> 52.2%
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Spread | solo cambio de juice -105 -> -112
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Orlando Magic @ Toronto Raptors (30/10 17:40) | draftkings Spread | solo cambio de juice -110 -> -108
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Moneyline | ajuste menor 75.7% -> 75.1%
+2026-10-20 19:57:37,986 INFO [BAJA] Ruido de mercado | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | ajuste menor 51.7% -> 52.2%
+2026-10-20 19:57:37,987 INFO [BAJA] Ruido de mercado | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Spread | solo cambio de juice -105 -> -110
+2026-10-20 19:57:37,987 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Moneyline | ajuste menor 63.1% -> 63.7%
+2026-10-20 19:57:37,987 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Spread | rebote -4.5 -> -5.5 -> -4.5
+2026-10-20 19:57:37,987 INFO [BAJA] Ruido de mercado | Indiana Pacers @ New Orleans Pelicans (21/10 18:10) | draftkings Spread | solo cambio de juice -105 -> -108
+2026-10-20 19:57:37,990 INFO Corrida OK: 43 partidos, 258 cotizaciones, 18 alertas nuevas | créditos: esta llamada=3, usados=80, restantes=420
+2026-10-20 19:57:37,990 INFO Splits de Action Network: 48 mercados con % de tickets
+2026-10-20 19:57:38,018 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-21 01:28:59,717 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Moneyline | 63% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 54.3%
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Spread | solo cambio de juice -112 -> -115
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Total | solo cambio de juice -105 -> -112
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Moneyline | ajuste menor 71.8% -> 72.6%
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Spread | solo cambio de juice -110 -> -115
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Spread | solo cambio de juice -110 -> -115
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | solo cambio de juice -105 -> -112
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Total | solo cambio de juice -105 -> -112
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Total | rebote 239.5 -> 238.5 -> 239.5
+2026-10-21 01:28:59,718 INFO [BAJA] Ruido de mercado | Indiana Pacers @ New Orleans Pelicans (21/10 18:10) | draftkings Total | rebote 239.5 -> 240.5 -> 239.5
+2026-10-21 01:28:59,720 INFO Corrida OK: 43 partidos, 258 cotizaciones, 10 alertas nuevas | créditos: esta llamada=3, usados=92, restantes=408
+2026-10-21 01:28:59,720 INFO Splits de Action Network: 39 mercados con % de tickets
+2026-10-21 01:28:59,747 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-21 07:10:32,277 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Moneyline | 89% de tickets en el local pero la línea se movió en contra: 63.7% -> 60.9%
+2026-10-21 07:10:32,277 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Total | 63% de tickets en el over pero la línea se movió en contra: 235.5 -> 234.5
+2026-10-21 07:10:32,277 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | 68% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 53.2%
+2026-10-21 07:10:32,277 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Spread | 63% de tickets en el visitante pero la línea se movió en contra: +1.5 -> -2.5
+2026-10-21 07:10:32,277 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Total | 69% de tickets en el over pero la línea se movió en contra: 229.5 -> 227.5
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Spread | solo cambio de juice -115 -> -110
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Total | solo cambio de juice -112 -> -105
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Moneyline | ajuste menor 61.6% -> 60.9%
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Total | solo cambio de juice -112 -> -102
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Spread | solo cambio de juice -118 -> -115
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Total | solo cambio de juice -110 -> -115
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Moneyline | ajuste menor 77.7% -> 78.2%
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Spread | solo cambio de juice -108 -> -110
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Moneyline | ajuste menor 52.2% -> 52.6%
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Total | solo cambio de juice -112 -> -108
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Spread | solo cambio de juice -115 -> -110
+2026-10-21 07:10:32,277 INFO [BAJA] Ruido de mercado | Indiana Pacers @ New Orleans Pelicans (21/10 18:10) | draftkings Spread | solo cambio de juice -108 -> -112
+2026-10-21 07:10:32,278 INFO Corrida OK: 43 partidos, 258 cotizaciones, 17 alertas nuevas | créditos: esta llamada=3, usados=95, restantes=405
+2026-10-21 07:10:32,278 INFO Splits de Action Network: 39 mercados con % de tickets
+2026-10-21 07:10:32,295 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-21 12:14:36,498 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Spread | 61% de tickets en el local pero la línea se movió en contra: -5.5 -> -4.5
+2026-10-21 12:14:36,498 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Moneyline | 83% de tickets en el local pero la línea se movió en contra: 70.5% -> 66.9%
+2026-10-21 12:14:36,498 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | 61% de tickets en el over pero la línea se movió en contra: 235.5 -> 230.5
+2026-10-21 12:14:36,498 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Total | 64% de tickets en el over pero la línea se movió en contra: 235.5 -> 233.5
+2026-10-21 12:14:36,498 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | 66% de tickets en el visitante pero la línea se movió en contra: 48.9% -> 54.3%
+2026-10-21 12:14:36,499 INFO [MEDIA] Movimiento Gradual | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Total | 236.5 -> 233.5 en 3 movimientos consecutivos
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Total | solo cambio de juice -105 -> -108
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Spread | solo cambio de juice -105 -> -115
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Total | solo cambio de juice -115 -> -110
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Spread | solo cambio de juice -118 -> -112
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Total | solo cambio de juice -112 -> -115
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Spread | solo cambio de juice -105 -> -108
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Total | solo cambio de juice -108 -> -115
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Los Angeles Lakers (21/10 20:00) | draftkings Spread | solo cambio de juice -110 -> -112
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Spread | solo cambio de juice -115 -> -112
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ Cleveland Cavaliers (06/11 18:40) | draftkings Moneyline | ajuste menor 52.2% -> 51.7%
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Detroit Pistons (20/11 18:40) | draftkings Moneyline | ajuste menor 52.2% -> 51.7%
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Spread | solo cambio de juice -112 -> -108
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | New York Knicks @ Philadelphia 76ers (30/10 17:40) | draftkings Moneyline | ajuste menor 53.2% -> 52.6%
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Spread | rebote -9.5 -> -10.5 -> -9.5
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Spread | rebote -1.5 -> -2.5 -> -1.5
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Total | solo cambio de juice -112 -> -115
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Spread | solo cambio de juice -110 -> -118
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Total | solo cambio de juice -110 -> -108
+2026-10-21 12:14:36,499 INFO [BAJA] Ruido de mercado | Indiana Pacers @ New Orleans Pelicans (21/10 18:10) | draftkings Total | solo cambio de juice -115 -> -105
+2026-10-21 12:14:36,501 INFO Corrida OK: 43 partidos, 258 cotizaciones, 25 alertas nuevas | créditos: esta llamada=3, usados=98, restantes=402
+2026-10-21 12:14:36,501 INFO Splits de Action Network: 45 mercados con % de tickets
+2026-10-21 12:14:36,519 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Total | solo cambio de juice -108 -> -112
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Spread | solo cambio de juice -115 -> -108
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Washington Wizards (21/10 17:00) | draftkings Total | solo cambio de juice -110 -> -105
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Moneyline | ajuste menor 48.3% -> 47.8%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Brooklyn Nets (21/10 17:30) | draftkings Spread | solo cambio de juice -112 -> -110
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Toronto Raptors (21/10 17:40) | draftkings Moneyline | ajuste menor 78.2% -> 79.1%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Phoenix Suns @ Portland Trail Blazers (21/10 20:10) | draftkings Total | rebote 231.5 -> 230.5 -> 231.5
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ Cleveland Cavaliers (06/11 18:40) | draftkings Moneyline | rebote 52.2% -> 51.7% -> 52.2%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Philadelphia 76ers @ Cleveland Cavaliers (06/11 18:40) | draftkings Total | rebote 234.5 -> 233.5 -> 234.5
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Orlando Magic (21/10 17:10) | draftkings Moneyline | ajuste menor 54.3% -> 55.1%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Detroit Pistons (20/11 18:40) | draftkings Moneyline | rebote 52.2% -> 51.7% -> 52.2%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Spread | solo cambio de juice -108 -> -102
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Miami Heat (21/10 17:40) | draftkings Total | solo cambio de juice -105 -> -110
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | New York Knicks @ Philadelphia 76ers (30/10 17:40) | draftkings Moneyline | rebote 53.2% -> 52.6% -> 53.2%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | New York Knicks @ Philadelphia 76ers (30/10 17:40) | draftkings Spread | rebote -1.5 -> -2.5 -> -1.5
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Moneyline | ajuste menor 78.2% -> 77.7%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Spread | solo cambio de juice -115 -> -118
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Houston Rockets (21/10 18:40) | draftkings Total | solo cambio de juice -105 -> -102
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Utah Jazz @ Memphis Grizzlies (21/10 18:10) | draftkings Moneyline | rebote 53.2% -> 54.3% -> 53.2%
+2026-10-21 15:57:33,713 INFO [BAJA] Ruido de mercado | Indiana Pacers @ New Orleans Pelicans (21/10 18:10) | draftkings Spread | solo cambio de juice -112 -> -118
+2026-10-21 15:57:33,718 INFO Corrida OK: 43 partidos, 258 cotizaciones, 20 alertas nuevas | créditos: esta llamada=3, usados=101, restantes=399
+2026-10-21 15:57:33,718 INFO Splits de Action Network: 0 mercados con % de tickets
+2026-10-21 15:57:33,738 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-21 18:37:16,558 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Sacramento Kings @ Los Angeles Clippers (21/10 20:40) | draftkings Total | 76% de tickets en el over pero la línea se movió en contra: 229.5 -> 226.5
+2026-10-21 18:37:16,559 INFO Corrida OK: 36 partidos, 216 cotizaciones, 1 alertas nuevas | créditos: esta llamada=3, usados=107, restantes=393
+2026-10-21 18:37:16,559 INFO Splits de Action Network: 45 mercados con % de tickets
+2026-10-21 18:37:16,591 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-22 00:01:45,426 INFO Sin alertas nuevas.
+2026-10-22 00:01:45,428 INFO Corrida OK: 41 partidos, 246 cotizaciones, 0 alertas nuevas | créditos: esta llamada=3, usados=122, restantes=378
+2026-10-22 00:01:45,428 INFO Splits de Action Network: 42 mercados con % de tickets
+2026-10-22 00:01:45,445 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-22 05:42:06,663 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Spread | solo cambio de juice +100 -> -102
+2026-10-22 05:42:06,663 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Spread | rebote -3.5 -> -2.5 -> -3.5
+2026-10-22 05:42:06,665 INFO Corrida OK: 41 partidos, 246 cotizaciones, 2 alertas nuevas | créditos: esta llamada=3, usados=125, restantes=375
+2026-10-22 05:42:06,665 INFO Splits de Action Network: 42 mercados con % de tickets
+2026-10-22 05:42:06,697 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-22 11:04:11,375 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Total | 69% de tickets en el over pero la línea se movió en contra: 239.5 -> 238.5
+2026-10-22 11:04:11,376 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Moneyline | 94% de tickets en el local pero la línea se movió en contra: 71.4% -> 66.9%
+2026-10-22 11:04:11,376 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Moneyline | 66% de tickets en el local pero la línea se movió en contra: 64.5% -> 60.0%
+2026-10-22 11:04:11,376 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Total | 87% de tickets en el over pero la línea se movió en contra: 229.5 -> 228.5
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Spread | solo cambio de juice -102 -> -105
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Moneyline | ajuste menor 57.2% -> 56.4%
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Cleveland Cavaliers @ Philadelphia 76ers (22/10 17:10) | draftkings Spread | rebote -2.5 -> -3.5 -> -2.5
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Denver Nuggets @ Oklahoma City Thunder (22/10 19:40) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Boston Celtics @ Washington Wizards (24/11 19:10) | draftkings Moneyline | ajuste menor 37.8% -> 38.4%
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Washington Wizards (30/10 17:10) | draftkings Moneyline | ajuste menor 51.1% -> 50.4%
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Spread | solo cambio de juice -115 -> -105
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Spread | solo cambio de juice -105 -> -110
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Portland Trail Blazers @ Sacramento Kings (23/10 20:10) | draftkings Total | solo cambio de juice -105 -> -112
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Spread | solo cambio de juice -110 -> -118
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Minnesota Timberwolves (30/10 18:10) | draftkings Moneyline | ajuste menor 74.8% -> 74.4%
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Moneyline | ajuste menor 65.8% -> 66.4%
+2026-10-22 11:04:11,376 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Total | solo cambio de juice -105 -> -108
+2026-10-22 11:04:11,377 INFO Corrida OK: 41 partidos, 246 cotizaciones, 17 alertas nuevas | créditos: esta llamada=3, usados=128, restantes=372
+2026-10-22 11:04:11,377 INFO Splits de Action Network: 42 mercados con % de tickets
+2026-10-22 11:04:11,402 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-22 14:32:50,021 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Total | 68% de tickets en el over pero la línea se movió en contra: 239.5 -> 237.5
+2026-10-22 14:32:50,021 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Moneyline | 68% de tickets en el local pero la línea se movió en contra: 64.5% -> 55.1%
+2026-10-22 14:32:50,021 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Moneyline | 88% de tickets en el visitante pero la línea se movió en contra: 43.6% -> 45.7%
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Los Angeles Lakers @ San Antonio Spurs (27/11 20:40) | draftkings Moneyline | ajuste menor 68.5% -> 68.1%
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Denver Nuggets (24/11 21:10) | draftkings Total | rebote 238.5 -> 237.5 -> 238.5
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Total | rebote 237.5 -> 238.5 -> 237.5
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Portland Trail Blazers @ Los Angeles Lakers (06/11 21:10) | draftkings Spread | rebote -3.5 -> -4.5 -> -3.5
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Detroit Pistons (20/11 18:40) | draftkings Moneyline | ajuste menor 52.2% -> 51.7%
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Spread | solo cambio de juice -118 -> -105
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Moneyline | ajuste menor 44.9% -> 45.7%
+2026-10-22 14:32:50,021 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Spread | solo cambio de juice -105 -> -108
+2026-10-22 14:32:50,023 INFO Corrida OK: 41 partidos, 246 cotizaciones, 11 alertas nuevas | créditos: esta llamada=3, usados=131, restantes=369
+2026-10-22 14:32:50,023 INFO Splits de Action Network: 42 mercados con % de tickets
+2026-10-22 14:32:50,059 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-22 17:34:36,641 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Moneyline | 93% de tickets en el local pero la línea se movió en contra: 71.4% -> 65.8%
+2026-10-22 17:34:36,641 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Moneyline | 70% de tickets en el local pero la línea se movió en contra: 53.2% -> 50.0%
+2026-10-22 17:34:36,641 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Total | 82% de tickets en el over pero la línea se movió en contra: 226.5 -> 225.5
+2026-10-22 17:34:36,641 INFO [BAJA] Ruido de mercado | Houston Rockets @ Denver Nuggets (20/11 21:10) | draftkings Moneyline | ajuste menor 57.2% -> 56.4%
+2026-10-22 17:34:36,641 INFO [BAJA] Ruido de mercado | Charlotte Hornets @ Washington Wizards (30/10 17:10) | draftkings Moneyline | ajuste menor 50.4% -> 51.1%
+2026-10-22 17:34:36,641 INFO [BAJA] Ruido de mercado | Portland Trail Blazers @ Sacramento Kings (23/10 20:10) | draftkings Spread | solo cambio de juice -115 -> -110
+2026-10-22 17:34:36,641 INFO [BAJA] Ruido de mercado | Portland Trail Blazers @ Sacramento Kings (23/10 20:10) | draftkings Total | solo cambio de juice -112 -> -108
+2026-10-22 17:34:36,641 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Spread | solo cambio de juice -105 -> -108
+2026-10-22 17:34:36,641 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Total | rebote 236.5 -> 237.5 -> 236.5
+2026-10-22 17:34:36,641 INFO [BAJA] Ruido de mercado | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Total | solo cambio de juice -105 -> -108
+2026-10-22 17:34:36,643 INFO Corrida OK: 40 partidos, 240 cotizaciones, 10 alertas nuevas | créditos: esta llamada=3, usados=134, restantes=366
+2026-10-22 17:34:36,643 INFO Splits de Action Network: 42 mercados con % de tickets
+2026-10-22 17:34:36,668 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-22 19:56:10,295 INFO [ALTA] Steam Move | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Spread | -6.5 -> -5.5 en 2.4h; movimiento brusco sin noticia pública detectada
+2026-10-22 19:56:10,295 INFO [BAJA] Ruido de mercado | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Total | rebote 227.5 -> 226.5 -> 227.5
+2026-10-22 19:56:10,295 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Total | solo cambio de juice -105 -> -110
+2026-10-22 19:56:10,295 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Minnesota Timberwolves (30/10 18:10) | draftkings Moneyline | ajuste menor 74.4% -> 74.1%
+2026-10-22 19:56:10,298 INFO Corrida OK: 39 partidos, 234 cotizaciones, 4 alertas nuevas | créditos: esta llamada=3, usados=140, restantes=360
+2026-10-22 19:56:10,298 INFO Splits de Action Network: 42 mercados con % de tickets
+2026-10-22 19:56:10,333 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 01:22:46,385 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Moneyline | 93% de tickets en el local pero la línea se movió en contra: 71.4% -> 64.5%
+2026-10-23 01:22:46,386 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Moneyline | 67% de tickets en el local pero la línea se movió en contra: 64.5% -> 54.3%
+2026-10-23 01:22:46,386 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Spread | 61% de tickets en el local pero la línea se movió en contra: -9.5 -> -8.5
+2026-10-23 01:22:46,386 INFO [MEDIA] Movimiento Gradual | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Total | 238.5 -> 235.5 en 3 movimientos consecutivos
+2026-10-23 01:22:46,386 INFO [MEDIA] Movimiento Gradual | Toronto Raptors @ Washington Wizards (23/10 17:10) | draftkings Moneyline | 37.8% -> 31.9% en 3 movimientos consecutivos
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Moneyline | ajuste menor 51.1% -> 50.4%
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Spread | solo cambio de juice -105 -> -102
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Total | solo cambio de juice -105 -> -112
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Moneyline | ajuste menor 55.1% -> 54.3%
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Spread | solo cambio de juice -112 -> -105
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Total | solo cambio de juice -115 -> -108
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Washington Wizards (23/10 17:10) | draftkings Total | solo cambio de juice -108 -> -105
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Portland Trail Blazers @ Sacramento Kings (23/10 20:10) | draftkings Spread | solo cambio de juice -110 -> -102
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Moneyline | ajuste menor 76.6% -> 76.0%
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Moneyline | ajuste menor 66.4% -> 66.9%
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Spread | rebote -6.5 -> -5.5 -> -6.5
+2026-10-23 01:22:46,386 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Total | solo cambio de juice -110 -> -112
+2026-10-23 01:22:46,388 INFO Corrida OK: 17 partidos, 102 cotizaciones, 17 alertas nuevas | créditos: esta llamada=3, usados=146, restantes=354
+2026-10-23 01:22:46,388 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 01:22:46,403 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 06:50:24,183 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Total | 68% de tickets en el over pero la línea se movió en contra: 223.5 -> 222.5
+2026-10-23 06:50:24,183 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Moneyline | 64% de tickets en el local pero la línea se movió en contra: 64.5% -> 52.6%
+2026-10-23 06:50:24,183 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Total | 60% de tickets en el over pero la línea se movió en contra: 241.5 -> 239.5
+2026-10-23 06:50:24,183 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Total | 64% de tickets en el over pero la línea se movió en contra: 237.5 -> 234.5
+2026-10-23 06:50:24,183 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Moneyline | 62% de tickets en el local pero la línea se movió en contra: 53.2% -> 48.9%
+2026-10-23 06:50:24,183 INFO [MEDIA] Movimiento Gradual | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Total | 238.5 -> 234.5 en 4 movimientos consecutivos
+2026-10-23 06:50:24,183 INFO [MEDIA] Movimiento Gradual | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Moneyline | 54.3% -> 48.9% en 3 movimientos consecutivos
+2026-10-23 06:50:24,183 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Moneyline | rebote 51.1% -> 50.4% -> 51.1%
+2026-10-23 06:50:24,183 INFO [BAJA] Ruido de mercado | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Moneyline | ajuste menor 56.4% -> 57.2%
+2026-10-23 06:50:24,184 INFO [BAJA] Ruido de mercado | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Spread | solo cambio de juice -110 -> -115
+2026-10-23 06:50:24,184 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Washington Wizards (23/10 17:10) | draftkings Total | solo cambio de juice -105 -> -110
+2026-10-23 06:50:24,184 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Spread | rebote -9.5 -> -8.5 -> -9.5
+2026-10-23 06:50:24,184 INFO [BAJA] Ruido de mercado | Memphis Grizzlies @ Golden State Warriors (23/10 20:10) | draftkings Spread | solo cambio de juice -110 -> -102
+2026-10-23 06:50:24,184 INFO [BAJA] Ruido de mercado | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Spread | rebote +1.5 -> -1.5 -> +1.5
+2026-10-23 06:50:24,184 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Spread | rebote +2.5 -> +3.5 -> +2.5
+2026-10-23 06:50:24,186 INFO Corrida OK: 17 partidos, 102 cotizaciones, 15 alertas nuevas | créditos: esta llamada=3, usados=149, restantes=351
+2026-10-23 06:50:24,186 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 06:50:24,198 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 11:50:53,099 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Total | 69% de tickets en el over pero la línea se movió en contra: 223.5 -> 221.5
+2026-10-23 11:50:53,099 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Moneyline | 92% de tickets en el local pero la línea se movió en contra: 71.4% -> 63.1%
+2026-10-23 11:50:53,099 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Total | 82% de tickets en el over pero la línea se movió en contra: 225.5 -> 224.5
+2026-10-23 11:50:53,099 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Moneyline | 88% de tickets en el visitante pero la línea se movió en contra: 46.8% -> 50.4%
+2026-10-23 11:50:53,099 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Spread | 83% de tickets en el visitante pero la línea se movió en contra: +1.5 -> -1.5
+2026-10-23 11:50:53,099 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Total | 84% de tickets en el over pero la línea se movió en contra: 229.5 -> 225.5
+2026-10-23 11:50:53,099 INFO [MEDIA] Movimiento Gradual | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Total | 224.5 -> 221.5 en 3 movimientos consecutivos
+2026-10-23 11:50:53,099 INFO [MEDIA] Movimiento Gradual | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Moneyline | 65.8% -> 69.6% en 3 movimientos consecutivos
+2026-10-23 11:50:53,099 INFO [MEDIA] Movimiento Gradual | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Total | 236.5 -> 239.5 en 3 movimientos consecutivos
+2026-10-23 11:50:53,099 INFO [MEDIA] Movimiento Gradual | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Moneyline | 54.3% -> 46.8% en 4 movimientos consecutivos
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Spread | solo cambio de juice -102 -> -112
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Chicago Bulls @ Milwaukee Bucks (23/10 14:10) | draftkings Total | solo cambio de juice -105 -> -108
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Spread | solo cambio de juice -115 -> -110
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Spread | solo cambio de juice -115 -> -102
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Total | solo cambio de juice -115 -> -108
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Toronto Raptors @ Washington Wizards (23/10 17:10) | draftkings Spread | solo cambio de juice -108 -> -105
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Moneyline | ajuste menor 76.0% -> 75.7%
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Spread | rebote -8.5 -> -9.5 -> -8.5
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Spread | solo cambio de juice -115 -> -110
+2026-10-23 11:50:53,099 INFO [BAJA] Ruido de mercado | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Total | solo cambio de juice -110 -> -108
+2026-10-23 11:50:53,101 INFO Corrida OK: 17 partidos, 102 cotizaciones, 20 alertas nuevas | créditos: esta llamada=3, usados=152, restantes=348
+2026-10-23 11:50:53,101 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 11:50:53,110 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 15:19:33,849 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Total | 71% de tickets en el over pero la línea se movió en contra: 223.5 -> 220.5
+2026-10-23 15:19:33,849 INFO [ALTA] Movimiento de Línea Inverso (RLM) | New Orleans Pelicans @ Utah Jazz (23/10 19:40) | draftkings Total | 68% de tickets en el over pero la línea se movió en contra: 241.5 -> 238.5
+2026-10-23 15:19:33,849 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Moneyline | 85% de tickets en el visitante pero la línea se movió en contra: 46.8% -> 51.7%
+2026-10-23 15:19:33,849 INFO [MEDIA] Movimiento Gradual | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Total | 224.5 -> 220.5 en 4 movimientos consecutivos
+2026-10-23 15:19:33,849 INFO [MEDIA] Movimiento Gradual | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Total | 236.5 -> 240.5 en 4 movimientos consecutivos
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | New York Knicks @ Boston Celtics (23/10 17:10) | draftkings Spread | solo cambio de juice -110 -> -115
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Spread | solo cambio de juice -115 -> -118
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Moneyline | ajuste menor 75.7% -> 75.1%
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | Memphis Grizzlies @ Golden State Warriors (23/10 20:10) | draftkings Spread | rebote -3.5 -> -4.5 -> -3.5
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Spread | solo cambio de juice -105 -> -110
+2026-10-23 15:19:33,849 INFO [BAJA] Ruido de mercado | Atlanta Hawks @ Charlotte Hornets (23/10 17:10) | draftkings Total | solo cambio de juice -115 -> -110
+2026-10-23 15:19:34,459 INFO Corrida OK: 16 partidos, 96 cotizaciones, 13 alertas nuevas | créditos: esta llamada=3, usados=155, restantes=345
+2026-10-23 15:19:34,460 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 15:19:34,469 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 16:55:53,388 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Moneyline | 91% de tickets en el local pero la línea se movió en contra: 71.4% -> 62.2%
+2026-10-23 16:55:53,388 INFO [ALTA] Steam Move | Toronto Raptors @ Washington Wizards (23/10 17:10) | draftkings Spread | +8.5 -> +9.5 en 1.6h; movimiento brusco sin noticia pública detectada
+2026-10-23 16:55:53,388 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Portland Trail Blazers @ Sacramento Kings (23/10 20:10) | draftkings Total | 63% de tickets en el over pero la línea se movió en contra: 232.5 -> 231.5
+2026-10-23 16:55:53,388 INFO [MEDIA] Movimiento Gradual | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Moneyline | 66.9% -> 62.2% en 4 movimientos consecutivos
+2026-10-23 16:55:53,388 INFO [MEDIA] Movimiento Gradual | Dallas Mavericks @ Indiana Pacers (23/10 17:10) | draftkings Total | 236.5 -> 241.5 en 5 movimientos consecutivos
+2026-10-23 16:55:53,388 INFO [BAJA] Ruido de mercado | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Spread | solo cambio de juice -118 -> -115
+2026-10-23 16:55:53,389 INFO [BAJA] Ruido de mercado | Houston Rockets @ San Antonio Spurs (23/10 19:40) | draftkings Total | solo cambio de juice -110 -> -108
+2026-10-23 16:55:53,389 INFO [BAJA] Ruido de mercado | Minnesota Timberwolves @ Orlando Magic (23/10 17:10) | draftkings Spread | solo cambio de juice -105 -> -110
+2026-10-23 16:55:53,389 INFO [BAJA] Ruido de mercado | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Total | solo cambio de juice -108 -> -105
+2026-10-23 16:55:53,390 INFO Corrida OK: 16 partidos, 96 cotizaciones, 9 alertas nuevas | créditos: esta llamada=3, usados=161, restantes=339
+2026-10-23 16:55:53,390 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 16:55:53,406 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 17:00:05,859 INFO Aún no toca snapshot (frecuencia 30 min, último de pago 2026-10-23T22:55:51+00:00).
+2026-10-23 17:30:06,467 INFO Sin alertas nuevas.
+2026-10-23 17:30:06,468 INFO Corrida OK: 11 partidos, 66 cotizaciones, 0 alertas nuevas | créditos: esta llamada=3, usados=167, restantes=333
+2026-10-23 17:30:06,468 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 17:30:06,481 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 18:00:18,843 INFO [ALTA] Steam Move | Memphis Grizzlies @ Golden State Warriors (23/10 20:10) | draftkings Spread | -3.5 -> -4.5 en 0.5h; movimiento brusco sin noticia pública detectada
+2026-10-23 18:00:18,844 INFO [ALTA] Steam Move | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Spread | +1.5 -> +2.5 en 0.5h; movimiento brusco sin noticia pública detectada
+2026-10-23 18:00:18,844 INFO [MEDIA] Movimiento Gradual | Detroit Pistons @ Miami Heat (23/10 18:10) | draftkings Moneyline | 50.0% -> 45.7% en 3 movimientos consecutivos
+2026-10-23 18:00:18,845 INFO Corrida OK: 11 partidos, 66 cotizaciones, 3 alertas nuevas | créditos: esta llamada=3, usados=173, restantes=327
+2026-10-23 18:00:18,845 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 18:00:18,858 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 18:30:06,552 INFO [BAJA] Ruido de mercado | Memphis Grizzlies @ Golden State Warriors (23/10 20:10) | draftkings Moneyline | rebote 59.3% -> 58.3% -> 59.3%
+2026-10-23 18:30:06,553 INFO Corrida OK: 10 partidos, 60 cotizaciones, 1 alertas nuevas | créditos: esta llamada=3, usados=176, restantes=324
+2026-10-23 18:30:06,553 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 18:30:06,566 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 19:00:08,245 INFO [BAJA] Ruido de mercado | Los Angeles Clippers @ Los Angeles Lakers (23/10 20:10) | draftkings Total | solo cambio de juice -115 -> -108
+2026-10-23 19:00:08,245 INFO [BAJA] Ruido de mercado | Memphis Grizzlies @ Golden State Warriors (23/10 20:10) | draftkings Moneyline | rebote 58.3% -> 59.3% -> 58.3%
+2026-10-23 19:00:08,246 INFO Corrida OK: 10 partidos, 60 cotizaciones, 2 alertas nuevas | créditos: esta llamada=3, usados=179, restantes=321
+2026-10-23 19:00:08,246 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 19:00:08,259 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 19:30:08,242 INFO Sin alertas nuevas.
+2026-10-23 19:30:08,243 INFO Corrida OK: 10 partidos, 60 cotizaciones, 0 alertas nuevas | créditos: esta llamada=3, usados=182, restantes=318
+2026-10-23 19:30:08,243 INFO Splits de Action Network: 36 mercados con % de tickets
+2026-10-23 19:30:08,258 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 20:00:07,687 INFO Sin alertas nuevas.
+2026-10-23 20:00:07,688 INFO Corrida OK: 8 partidos, 48 cotizaciones, 0 alertas nuevas | créditos: esta llamada=3, usados=185, restantes=315
+2026-10-23 20:00:07,688 INFO Splits de Action Network: 38 mercados con % de tickets
+2026-10-23 20:00:07,700 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 20:30:06,320 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T02:00:05+00:00).
+2026-10-23 21:00:07,247 INFO Sin alertas nuevas.
+2026-10-23 21:00:07,248 INFO Corrida OK: 12 partidos, 72 cotizaciones, 0 alertas nuevas | créditos: esta llamada=3, usados=191, restantes=309
+2026-10-23 21:00:07,248 INFO Splits de Action Network: 60 mercados con % de tickets
+2026-10-23 21:00:07,260 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 21:30:05,899 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T03:00:05+00:00).
+2026-10-23 22:00:07,612 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Moneyline | ajuste menor 51.7% -> 52.2%
+2026-10-23 22:00:07,613 INFO Corrida OK: 13 partidos, 78 cotizaciones, 1 alertas nuevas | créditos: esta llamada=3, usados=197, restantes=303
+2026-10-23 22:00:07,613 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-23 22:00:07,625 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 22:00:24,407 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T04:00:05+00:00).
+2026-10-23 22:30:05,724 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T04:00:05+00:00).
+2026-10-23 23:00:07,356 INFO [ALTA] Steam Move | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Spread | -6.5 -> -7.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-23 23:00:07,356 INFO [BAJA] Ruido de mercado | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Total | solo cambio de juice -115 -> -105
+2026-10-23 23:00:07,357 INFO Corrida OK: 13 partidos, 78 cotizaciones, 2 alertas nuevas | créditos: esta llamada=3, usados=200, restantes=300
+2026-10-23 23:00:07,357 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-23 23:00:07,365 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-23 23:30:05,903 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T05:00:05+00:00).
+2026-10-24 00:00:07,237 INFO [ALTA] Steam Move | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Total | 231.5 -> 233.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 00:00:07,237 INFO [ALTA] Movimiento por Información | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Moneyline | 68.1% -> 75.1% en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 00:00:07,237 INFO [ALTA] Movimiento por Información | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Spread | -7.5 -> -9.5 en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 00:00:07,237 INFO [ALTA] Movimiento por Información | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | 224.5 -> 220.5 en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 00:00:07,237 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | 65% de tickets en el over pero la línea se movió en contra: 224.5 -> 220.5
+2026-10-24 00:00:07,237 INFO [ALTA] Steam Move | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Spread | +11.5 -> +12.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 00:00:07,237 INFO [BAJA] Ruido de mercado | Miami Heat @ Charlotte Hornets (24/10 16:10) | draftkings Total | solo cambio de juice -115 -> -110
+2026-10-24 00:00:07,237 INFO [BAJA] Ruido de mercado | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Total | solo cambio de juice -110 -> -112
+2026-10-24 00:00:07,237 INFO [BAJA] Ruido de mercado | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Moneyline | ajuste menor 80.4% -> 80.8%
+2026-10-24 00:00:07,237 INFO [BAJA] Ruido de mercado | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Spread | solo cambio de juice -105 -> -115
+2026-10-24 00:00:07,238 INFO Corrida OK: 13 partidos, 78 cotizaciones, 10 alertas nuevas | créditos: esta llamada=3, usados=203, restantes=297
+2026-10-24 00:00:07,238 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 00:00:07,246 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 00:30:05,844 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T06:00:05+00:00).
+2026-10-24 01:00:06,483 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Moneyline | ajuste menor 75.1% -> 76.0%
+2026-10-24 01:00:06,483 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Spread | solo cambio de juice -105 -> -110
+2026-10-24 01:00:06,484 INFO Corrida OK: 13 partidos, 78 cotizaciones, 2 alertas nuevas | créditos: esta llamada=3, usados=206, restantes=294
+2026-10-24 01:00:06,484 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 01:00:06,492 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 01:30:05,935 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T07:00:05+00:00).
+2026-10-24 02:00:07,244 INFO [ALTA] Movimiento por Información | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | +1.5 -> -1.5 en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 02:00:07,244 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | 75% de tickets en el visitante pero la línea se movió en contra: +1.5 -> -1.5
+2026-10-24 02:00:07,244 INFO [BAJA] Ruido de mercado | New Orleans Pelicans @ Denver Nuggets (24/10 19:10) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-24 02:00:07,245 INFO Corrida OK: 13 partidos, 78 cotizaciones, 3 alertas nuevas | créditos: esta llamada=3, usados=209, restantes=291
+2026-10-24 02:00:07,245 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 02:00:07,253 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 02:30:05,914 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T08:00:06+00:00).
+2026-10-24 03:00:06,660 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Total | 91% de tickets en el over pero la línea se movió en contra: 230.5 -> 229.5
+2026-10-24 03:00:06,660 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | 62% de tickets en el over pero la línea se movió en contra: 224.5 -> 219.5
+2026-10-24 03:00:06,660 INFO [ALTA] Steam Move | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Total | 243.5 -> 245.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 03:00:06,660 INFO [ALTA] Steam Move | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Spread | -11.5 -> -12.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 03:00:06,660 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Spread | solo cambio de juice -110 -> -115
+2026-10-24 03:00:06,661 INFO Corrida OK: 13 partidos, 78 cotizaciones, 5 alertas nuevas | créditos: esta llamada=3, usados=212, restantes=288
+2026-10-24 03:00:06,661 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 03:00:06,669 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 03:30:05,413 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T09:00:05+00:00).
+2026-10-24 03:30:19,082 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T09:00:05+00:00).
+2026-10-24 04:00:06,563 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Miami Heat @ Charlotte Hornets (24/10 16:10) | draftkings Total | 62% de tickets en el over pero la línea se movió en contra: 231.5 -> 230.5
+2026-10-24 04:00:06,563 INFO [ALTA] Movimiento por Información | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | -1.5 -> +1.5 en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 04:00:06,564 INFO Corrida OK: 13 partidos, 78 cotizaciones, 2 alertas nuevas | créditos: esta llamada=3, usados=215, restantes=285
+2026-10-24 04:00:06,564 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 04:00:06,579 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 04:30:06,786 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T10:00:05+00:00).
+2026-10-24 05:00:06,883 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Spread | 61% de tickets en el visitante pero la línea se movió en contra: -6.5 -> -9.5
+2026-10-24 05:00:06,883 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | 65% de tickets en el over pero la línea se movió en contra: 224.5 -> 218.5
+2026-10-24 05:00:06,883 INFO [BAJA] Ruido de mercado | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Spread | solo cambio de juice -112 -> -108
+2026-10-24 05:00:06,883 INFO [BAJA] Ruido de mercado | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Total | solo cambio de juice -112 -> -108
+2026-10-24 05:00:06,884 INFO Corrida OK: 13 partidos, 78 cotizaciones, 4 alertas nuevas | créditos: esta llamada=3, usados=218, restantes=282
+2026-10-24 05:00:06,884 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 05:00:06,899 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 05:30:05,575 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T11:00:06+00:00).
+2026-10-24 06:00:17,431 ERROR HTTP 502 en events: Internal Server Error
+2026-10-24 06:30:08,265 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Miami Heat @ Charlotte Hornets (24/10 16:10) | draftkings Total | 65% de tickets en el over pero la línea se movió en contra: 231.5 -> 229.5
+2026-10-24 06:30:08,265 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Total | 90% de tickets en el over pero la línea se movió en contra: 230.5 -> 228.5
+2026-10-24 06:30:08,265 INFO [ALTA] Movimiento de Línea Inverso (RLM) | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Total | 63% de tickets en el over pero la línea se movió en contra: 230.5 -> 229.5
+2026-10-24 06:30:08,265 INFO [ALTA] Steam Move | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Spread | -12.5 -> -11.5 en 1.5h; movimiento brusco sin noticia pública detectada
+2026-10-24 06:30:08,265 INFO [ALTA] Steam Move | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Total | 231.5 -> 229.5 en 1.5h; movimiento brusco sin noticia pública detectada
+2026-10-24 06:30:08,265 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Total | 60% de tickets en el over pero la línea se movió en contra: 232.5 -> 229.5
+2026-10-24 06:30:08,265 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Moneyline | ajuste menor 84.0% -> 83.7%
+2026-10-24 06:30:08,265 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | solo cambio de juice -112 -> -110
+2026-10-24 06:30:08,265 INFO [BAJA] Ruido de mercado | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Moneyline | ajuste menor 19.2% -> 18.3%
+2026-10-24 06:30:08,265 INFO [BAJA] Ruido de mercado | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Moneyline | ajuste menor 80.8% -> 80.0%
+2026-10-24 06:30:08,266 INFO Corrida OK: 13 partidos, 78 cotizaciones, 10 alertas nuevas | créditos: esta llamada=3, usados=221, restantes=279
+2026-10-24 06:30:08,266 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 06:30:08,282 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 07:00:06,017 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T12:30:05+00:00).
+2026-10-24 07:30:16,297 INFO [ALTA] Steam Move | New Orleans Pelicans @ Denver Nuggets (24/10 19:10) | draftkings Total | 237.5 -> 239.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 07:30:16,297 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Total | 90% de tickets en el over pero la línea se movió en contra: 230.5 -> 227.5
+2026-10-24 07:30:16,297 INFO [ALTA] Movimiento por Información | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | 218.5 -> 221.5 en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 07:30:16,297 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | 66% de tickets en el over pero la línea se movió en contra: 224.5 -> 221.5
+2026-10-24 07:30:16,297 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Moneyline | 65% de tickets en el visitante pero la línea se movió en contra: 50.0% -> 51.7%
+2026-10-24 07:30:16,297 INFO [ALTA] Movimiento por Información | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | +1.5 -> -1.5 en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 07:30:16,297 INFO [ALTA] Steam Move | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Total | 229.5 -> 227.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 07:30:16,297 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Total | 62% de tickets en el over pero la línea se movió en contra: 232.5 -> 227.5
+2026-10-24 07:30:16,297 INFO [MEDIA] Movimiento Gradual | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Total | 230.5 -> 227.5 en 3 movimientos consecutivos
+2026-10-24 07:30:16,297 INFO [BAJA] Ruido de mercado | Miami Heat @ Charlotte Hornets (24/10 16:10) | draftkings Spread | solo cambio de juice -110 -> -115
+2026-10-24 07:30:16,297 INFO [BAJA] Ruido de mercado | Miami Heat @ Charlotte Hornets (24/10 16:10) | draftkings Total | rebote 230.5 -> 229.5 -> 230.5
+2026-10-24 07:30:16,297 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Spread | solo cambio de juice -110 -> -108
+2026-10-24 07:30:16,297 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Spread | solo cambio de juice -110 -> -112
+2026-10-24 07:30:16,298 INFO [BAJA] Ruido de mercado | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Total | solo cambio de juice -108 -> -110
+2026-10-24 07:30:16,298 INFO [BAJA] Ruido de mercado | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Spread | solo cambio de juice -105 -> -102
+2026-10-24 07:30:16,299 INFO Corrida OK: 13 partidos, 78 cotizaciones, 15 alertas nuevas | créditos: esta llamada=3, usados=224, restantes=276
+2026-10-24 07:30:16,299 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 07:30:16,315 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 08:00:05,748 ERROR HTTP 429 en events: {"Reason":"CallerRateLimitExceeded","Type":"User","message":"Rate Exceeded."}
+2026-10-24 08:30:07,128 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Moneyline | ajuste menor 51.1% -> 51.7%
+2026-10-24 08:30:07,129 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Spread | solo cambio de juice -108 -> -110
+2026-10-24 08:30:07,129 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Moneyline | ajuste menor 76.0% -> 75.7%
+2026-10-24 08:30:07,129 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Spread | solo cambio de juice -115 -> -108
+2026-10-24 08:30:07,129 INFO [BAJA] Ruido de mercado | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Spread | solo cambio de juice -102 -> -108
+2026-10-24 08:30:07,130 INFO Corrida OK: 13 partidos, 78 cotizaciones, 5 alertas nuevas | créditos: esta llamada=3, usados=227, restantes=273
+2026-10-24 08:30:07,130 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 08:30:07,146 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 09:00:05,721 ERROR HTTP 429 en events: {"Reason":"CallerRateLimitExceeded","Type":"User","message":"Rate Exceeded."}
+2026-10-24 09:00:21,446 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T14:30:05+00:00).
+2026-10-24 09:30:07,492 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Moneyline | 65% de tickets en el visitante pero la línea se movió en contra: 50.0% -> 52.6%
+2026-10-24 09:30:07,492 INFO [ALTA] Steam Move | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | -1.5 -> -2.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 09:30:07,492 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | 72% de tickets en el visitante pero la línea se movió en contra: +1.5 -> -2.5
+2026-10-24 09:30:07,492 INFO [ALTA] Movimiento por Información | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Total | 230.5 -> 232.5 en 1.0h; noticias: Kyrie Irving (Dallas Mavericks): Day-To-Day
+2026-10-24 09:30:07,492 INFO [BAJA] Ruido de mercado | New Orleans Pelicans @ Denver Nuggets (24/10 19:10) | draftkings Total | rebote 239.5 -> 238.5 -> 239.5
+2026-10-24 09:30:07,492 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Spread | solo cambio de juice -110 -> -108
+2026-10-24 09:30:07,492 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Total | solo cambio de juice -108 -> -112
+2026-10-24 09:30:07,492 INFO [BAJA] Ruido de mercado | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Moneyline | ajuste menor 51.7% -> 52.6%
+2026-10-24 09:30:07,492 INFO [BAJA] Ruido de mercado | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Moneyline | ajuste menor 18.3% -> 17.8%
+2026-10-24 09:30:07,494 INFO Corrida OK: 13 partidos, 78 cotizaciones, 9 alertas nuevas | créditos: esta llamada=3, usados=230, restantes=270
+2026-10-24 09:30:07,494 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 09:30:07,504 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 10:00:06,161 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T15:30:05+00:00).
+2026-10-24 10:30:07,669 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Brooklyn Nets @ Cleveland Cavaliers (24/10 17:40) | draftkings Total | 65% de tickets en el over pero la línea se movió en contra: 232.5 -> 228.5
+2026-10-24 10:30:07,669 INFO [BAJA] Ruido de mercado | Miami Heat @ Charlotte Hornets (24/10 16:10) | draftkings Total | solo cambio de juice -110 -> -108
+2026-10-24 10:30:07,669 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Moneyline | ajuste menor 51.7% -> 51.1%
+2026-10-24 10:30:07,669 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Spread | solo cambio de juice -108 -> -105
+2026-10-24 10:30:07,669 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Spread | solo cambio de juice -112 -> -110
+2026-10-24 10:30:07,669 INFO [BAJA] Ruido de mercado | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | solo cambio de juice -112 -> -108
+2026-10-24 10:30:07,670 INFO Corrida OK: 13 partidos, 78 cotizaciones, 6 alertas nuevas | créditos: esta llamada=3, usados=236, restantes=264
+2026-10-24 10:30:07,670 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 10:30:07,681 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 11:00:06,658 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T16:30:05+00:00).
+2026-10-24 11:30:07,393 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | 72% de tickets en el over pero la línea se movió en contra: 224.5 -> 222.5
+2026-10-24 11:30:07,393 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Total | solo cambio de juice -108 -> -110
+2026-10-24 11:30:07,395 INFO Corrida OK: 13 partidos, 78 cotizaciones, 2 alertas nuevas | créditos: esta llamada=3, usados=242, restantes=258
+2026-10-24 11:30:07,395 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 11:30:07,406 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 12:00:06,180 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T17:30:05+00:00).
+2026-10-24 12:30:06,811 INFO [ALTA] Movimiento por Información | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Spread | -1.5 -> +1.5 en 1.0h; salto grande sin noticia detectada (revisar lesiones/descansos)
+2026-10-24 12:30:06,812 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Moneyline | 64% de tickets en el visitante pero la línea se movió en contra: 50.0% -> 54.3%
+2026-10-24 12:30:06,812 INFO [ALTA] Movimiento por Información | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Moneyline | 17.8% -> 14.2% en 1.0h; noticias: Caleb Martin (Dallas Mavericks): Out; Santi Aldama (Dallas Mavericks): Out; Tarik Biberovic (Dallas Mavericks): Out
+2026-10-24 12:30:06,812 INFO [ALTA] Movimiento por Información | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Spread | +12.5 -> +14.5 en 1.0h; noticias: Caleb Martin (Dallas Mavericks): Out; Santi Aldama (Dallas Mavericks): Out; Tarik Biberovic (Dallas Mavericks): Out
+2026-10-24 12:30:06,812 INFO [MEDIA] Movimiento Gradual | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Moneyline | 50.0% -> 54.3% en 3 movimientos consecutivos
+2026-10-24 12:30:06,812 INFO [BAJA] Ruido de mercado | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Spread | solo cambio de juice -108 -> -112
+2026-10-24 12:30:06,812 INFO [BAJA] Ruido de mercado | Washington Wizards @ Chicago Bulls (24/10 18:10) | draftkings Total | rebote 244.5 -> 243.5 -> 244.5
+2026-10-24 12:30:06,813 INFO Corrida OK: 13 partidos, 78 cotizaciones, 7 alertas nuevas | créditos: esta llamada=3, usados=248, restantes=252
+2026-10-24 12:30:06,813 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 12:30:06,823 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 13:00:06,450 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T18:30:05+00:00).
+2026-10-24 13:30:06,826 INFO [ALTA] Steam Move | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Spread | -12.5 -> -11.5 en 1.0h; movimiento brusco sin noticia pública detectada
+2026-10-24 13:30:06,827 INFO [ALTA] Movimiento de Línea Inverso (RLM) | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Spread | 77% de tickets en el local pero la línea se movió en contra: -12.5 -> -11.5
+2026-10-24 13:30:06,827 INFO [MEDIA] Movimiento Gradual | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Total | 232.5 -> 229.5 en 3 movimientos consecutivos
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | New Orleans Pelicans @ Denver Nuggets (24/10 19:10) | draftkings Total | solo cambio de juice -112 -> -110
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Moneyline | ajuste menor 50.0% -> 49.6%
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | Houston Rockets @ Atlanta Hawks (24/10 18:40) | draftkings Total | solo cambio de juice -112 -> -108
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | Milwaukee Bucks @ Philadelphia 76ers (24/10 17:40) | draftkings Moneyline | ajuste menor 81.7% -> 82.7%
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Spread | solo cambio de juice -108 -> -105
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | Golden State Warriors @ Phoenix Suns (24/10 20:10) | draftkings Total | solo cambio de juice -110 -> -105
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Moneyline | ajuste menor 14.2% -> 13.7%
+2026-10-24 13:30:06,827 INFO [BAJA] Ruido de mercado | San Antonio Spurs @ Dallas Mavericks (24/10 18:10) | draftkings Spread | solo cambio de juice -110 -> -105
+2026-10-24 13:30:06,828 INFO Corrida OK: 13 partidos, 78 cotizaciones, 11 alertas nuevas | créditos: esta llamada=3, usados=254, restantes=246
+2026-10-24 13:30:06,828 INFO Splits de Action Network: 24 mercados con % de tickets
+2026-10-24 13:30:06,841 INFO Dashboard actualizado: /home/runner/work/nba-odds-tracker/nba-odds-tracker/data/dashboard.html
+2026-10-24 14:00:05,538 INFO Aún no toca snapshot (frecuencia 60 min, último de pago 2026-10-24T19:30:05+00:00).
