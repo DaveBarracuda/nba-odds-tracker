@@ -51,18 +51,23 @@ Umbrales en `tracker/detectors.py` (`THRESHOLDS`).
   `python -m tracker report` calcula la proyección con el calendario real de los próximos 7 días.
 - `MIN_CREDITS_REMAINING` detiene el tracker antes de agotar la cuenta.
 
-## GitHub Actions
+## GitHub Actions (corre 24/7 sin tu PC)
 
-`.github/workflows/tracker.yml` corre a los minutos :05 y :35 de cada hora (el cron de GitHub puede retrasarse
-unos minutos; la lógica tolera hasta 10 min). Necesita:
+El cron de GitHub se retrasa horas en repos poco activos, así que `.github/workflows/tracker.yml` corre en
+**loop ~5.5 h**: en cada minuto :00 y :30 ejecuta `python -m tracker run` (que decide si toca snapshot de pago)
+y guarda en la rama `data`. Al terminar **se relanza solo** con `workflow_dispatch`. Un cron cada 3 h es
+respaldo por si la cadena se corta (esos disparos aparecen como "cancelled" cuando el loop sigue vivo).
 
-- Secret `ODDS_API_KEY` (opcionales `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`).
-- Variables opcionales `BOOKMAKERS`, `MARKETS`, `MIN_CREDITS_REMAINING`.
-- La rama `data` guarda `odds.sqlite3`, logs y `dashboard.html` en un único commit que se reescribe en cada
-  corrida (la historia vive en la base, no en git). Para verlos: `git fetch origin data && git checkout origin/data -- .`
-  en un clon aparte, o descarga los archivos desde la rama `data` en GitHub.
+- Repo **público**: los minutos de Actions son gratis e ilimitados. La API key vive en el secret `ODDS_API_KEY`.
+- Opcionales: secrets `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`; vars `BOOKMAKERS`, `MARKETS`, `MIN_CREDITS_REMAINING`.
+- La rama `data` guarda `odds.sqlite3`, logs y el dashboard en un único commit reescrito en cada corrida.
+- Cambios de código en `main` se aplican en el siguiente eslabón de la cadena (≤ 5.5 h) o al relanzarla.
+- Detener: `gh workflow disable tracker.yml` (y cancelar el run en curso). Reanudar: `gh workflow enable tracker.yml`
+  y `gh workflow run tracker.yml`.
 
 ## Dashboard
+
+Publicado con GitHub Pages desde la rama `data`: https://davebarracuda.github.io/nba-odds-tracker/
 
 Cada corrida regenera `data/dashboard.html` (autocontenido, se recarga cada 5 min): alertas de las
 últimas 24 h, y por partido la línea actual de DraftKings, apertura → actual, sparkline de la historia,
