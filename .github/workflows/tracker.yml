@@ -2,7 +2,7 @@ name: NBA odds tracker
 
 # El cron de GitHub se retrasa horas en repos poco activos, así que el job corre en loop
 # ~5.5 h (snapshot cuando toca, en los minutos :00 y :30) y al terminar se relanza a sí mismo
-# con workflow_dispatch. El cron horario solo es un respaldo por si la cadena se corta.
+# con workflow_dispatch. El cron cada 3 h solo es un respaldo por si la cadena se corta.
 # Para detenerlo: gh workflow disable tracker.yml
 on:
   workflow_dispatch:
