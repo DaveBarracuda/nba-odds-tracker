@@ -54,10 +54,9 @@ def _get(path: str, params: dict[str, str]) -> tuple[Any, Usage]:
     return resp.json(), Usage.from_headers(resp.headers)
 
 
-def fetch_events(api_key: str) -> list[dict[str, Any]]:
-    """Lista de partidos próximos. Este endpoint NO consume créditos."""
-    data, _ = _get("events", {"apiKey": api_key})
-    return data
+def fetch_events(api_key: str) -> tuple[list[dict[str, Any]], Usage]:
+    """Partidos próximos y saldo actual de la key. Este endpoint NO consume créditos."""
+    return _get("events", {"apiKey": api_key})
 
 
 def fetch_odds(api_key: str, bookmakers: str, markets: str, now: datetime) -> tuple[list[Quote], Usage]:

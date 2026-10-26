@@ -13,7 +13,7 @@ from .config import Settings
 from .dashboard import build_dashboard
 from .detectors import analyze
 from .injuries import fetch_injuries, news_for_teams
-from .odds_client import OddsApiError, Quote, fetch_events, fetch_odds
+from .odds_client import OddsApiError, Quote, Usage, fetch_events, fetch_odds
 from .public_betting import PublicKey, load_public_pct, make_key
 from .schedule import ET, estimate_paid_runs, is_dense, snapshot_due
 from .storage import InjuryKey, Store
@@ -31,13 +31,20 @@ def _in_active_hours(settings: Settings) -> bool:
     return start <= datetime.now().astimezone().hour < end
 
 
-def _game_starts(settings: Settings, store: Store, now: datetime) -> list[datetime]:
+def _game_starts(settings: Settings, store: Store, now: datetime) -> tuple[list[datetime], Usage]:
     """Horarios de inicio: endpoint de eventos (gratis) + juegos de hoy ya vistos en la base,
-    para conocer el primer juego del día aunque ya haya empezado."""
-    starts = {datetime.fromisoformat(ev["commence_time"]) for ev in fetch_events(settings.api_key)}
+    para conocer el primer juego del día aunque ya haya empezado. También devuelve el saldo actual."""
+    events, usage = fetch_events(settings.api_key)
+    starts = {datetime.fromisoformat(ev["commence_time"]) for ev in events}
     day_start = datetime.combine(now.astimezone(ET).date(), datetime.min.time(), ET)
     starts |= {datetime.fromisoformat(ts) for ts in store.commence_times_since(day_start)}
-    return sorted(starts)
+    return sorted(starts), usage
+
+
+def _credits_left(fresh: Usage, store: Store) -> int | None:
+    """Saldo actual de la key (headers del endpoint gratuito); si falta, el último guardado.
+    Usar el saldo fresco evita quedar bloqueado tras cambiar de API key."""
+    return fresh.remaining if fresh.remaining is not None else store.last_remaining()
 
 
 def _safe_injuries() -> set[InjuryKey] | None:
@@ -87,7 +94,7 @@ def _run(settings: Settings, store: Store, now: datetime, run_ts: str) -> None:
         store.record_run(run_ts, "skipped_hours")
         return
     try:
-        starts = _game_starts(settings, store, now)
+        starts, fresh_usage = _game_starts(settings, store, now)
     except OddsApiError as exc:
         log.error("%s", exc)
         store.record_run(run_ts, "error")
@@ -103,7 +110,7 @@ def _run(settings: Settings, store: Store, now: datetime, run_ts: str) -> None:
         log.info("Aún no toca snapshot (frecuencia %s, último de pago %s).",
                  "30 min" if dense else "60 min", last_paid.isoformat() if last_paid else "-")
         return
-    remaining = store.last_remaining()
+    remaining = _credits_left(fresh_usage, store)
     if remaining is not None and remaining < settings.min_credits:
         log.warning("Quedan %d créditos (< %d). Corrida omitida.", remaining, settings.min_credits)
         store.record_run(run_ts, "skipped_low_credits")
@@ -175,7 +182,9 @@ def report(settings: Settings) -> None:
     log.info("Créditos gastados por el tracker: %d en %d llamadas de pago (promedio %.1f por corrida)",
              spent, len(paid), avg)
     now = datetime.now(timezone.utc)
-    starts = [datetime.fromisoformat(ev["commence_time"]) for ev in fetch_events(settings.api_key)]
+    events, usage = fetch_events(settings.api_key)
+    remaining = usage.remaining if usage.remaining is not None else remaining
+    starts = [datetime.fromisoformat(ev["commence_time"]) for ev in events]
     runs = estimate_paid_runs(starts, now, now + timedelta(days=ESTIMATE_DAYS))
     per_day = runs * settings.credits_per_call / ESTIMATE_DAYS
     log.info("Proyección con el calendario de los próximos %d días: %d snapshots de pago, "
