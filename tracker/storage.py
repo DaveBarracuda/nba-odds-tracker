@@ -6,7 +6,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, NamedTuple
 
-from .action_network import Split
+from .action_network import Opener, Split
+from .game_keys import GameKey, game_day, make_key
 from .lines import LinePoint, line_point
 from .odds_client import Quote, Usage
 
@@ -27,6 +28,10 @@ CREATE TABLE IF NOT EXISTS splits (
     tickets_pct REAL, money_pct REAL, num_bets INTEGER
 );
 CREATE INDEX IF NOT EXISTS ix_splits_ts ON splits(run_ts);
+CREATE TABLE IF NOT EXISTS openers (
+    away TEXT, home TEXT, market TEXT, game_day TEXT, value REAL,
+    PRIMARY KEY (away, home, market, game_day)
+);
 CREATE TABLE IF NOT EXISTS alerts (
     signature TEXT PRIMARY KEY, run_ts TEXT, kind TEXT, severity TEXT,
     event_id TEXT, book TEXT, market TEXT, message TEXT
@@ -34,7 +39,6 @@ CREATE TABLE IF NOT EXISTS alerts (
 """
 
 InjuryKey = tuple[str, str, str]  # (equipo, jugador, estatus)
-SplitKey = tuple[str, str, str]   # (away, home, market) en minúsculas
 
 
 class RunRow(NamedTuple):
@@ -51,6 +55,14 @@ class Store:
         path.parent.mkdir(parents=True, exist_ok=True)
         self.conn = sqlite3.connect(path)
         self.conn.executescript(SCHEMA)
+        self._add_column_if_missing("splits", "game_day", "TEXT")
+
+    def _add_column_if_missing(self, table: str, column: str, sql_type: str) -> None:
+        """Migración para bases creadas con versiones anteriores del esquema."""
+        columns = {row[1] for row in self.conn.execute(f"PRAGMA table_info({table})")}
+        if column not in columns:
+            with self.conn:
+                self.conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {sql_type}")
 
     def close(self) -> None:
         self.conn.close()
@@ -133,18 +145,31 @@ class Store:
     def save_splits(self, run_ts: str, splits: Iterable[Split]) -> None:
         with self.conn:
             self.conn.executemany(
-                "INSERT INTO splits VALUES (?, ?, ?, ?, ?, ?, ?)",
-                [(run_ts, s.away, s.home, s.market, s.tickets_pct, s.money_pct, s.num_bets) for s in splits],
+                "INSERT INTO splits (run_ts, away, home, market, tickets_pct, money_pct, num_bets, game_day) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                [(run_ts, s.away, s.home, s.market, s.tickets_pct, s.money_pct, s.num_bets,
+                  game_day(s.start_time) if s.start_time else "") for s in splits],
             )
 
-    def latest_splits(self) -> dict[SplitKey, Split]:
+    def latest_splits(self) -> dict[GameKey, Split]:
         (last_ts,) = self.conn.execute("SELECT MAX(run_ts) FROM splits").fetchone()
         if last_ts is None:
             return {}
         rows = self.conn.execute(
-            "SELECT away, home, market, tickets_pct, money_pct, num_bets FROM splits WHERE run_ts = ?",
-            (last_ts,))
-        return {(a.lower(), h.lower(), m): Split(a, h, "", m, t, mo, n) for a, h, m, t, mo, n in rows}
+            "SELECT away, home, market, tickets_pct, money_pct, num_bets, COALESCE(game_day, '') "
+            "FROM splits WHERE run_ts = ?", (last_ts,))
+        return {make_key(a, h, m, d): Split(a, h, "", m, t, mo, n) for a, h, m, t, mo, n, d in rows}
+
+    def save_openers(self, openers: Iterable[Opener]) -> None:
+        with self.conn:
+            self.conn.executemany(
+                "INSERT OR REPLACE INTO openers VALUES (?, ?, ?, ?, ?)",
+                [(o.away, o.home, o.market, game_day(o.start_time), o.value) for o in openers if o.start_time],
+            )
+
+    def openers(self) -> dict[GameKey, float]:
+        rows = self.conn.execute("SELECT away, home, market, game_day, value FROM openers")
+        return {make_key(a, h, m, d): v for a, h, m, d, v in rows}
 
     def latest_quotes_run(self) -> str | None:
         (last_ts,) = self.conn.execute("SELECT MAX(run_ts) FROM quotes").fetchone()

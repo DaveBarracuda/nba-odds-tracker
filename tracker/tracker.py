@@ -7,14 +7,15 @@ from datetime import datetime, timedelta, timezone
 
 import requests
 
-from .action_network import Split, dates_to_query, fetch_splits
+from .action_network import Opener, Split, dates_to_query, fetch_board
 from .alerts import Alert, dispatch
 from .config import Settings
 from .dashboard import build_dashboard
 from .detectors import analyze
 from .injuries import fetch_injuries, news_for_teams
 from .odds_client import OddsApiError, Quote, Usage, fetch_events, fetch_odds
-from .public_betting import PublicKey, load_public_pct, make_key
+from .game_keys import GameKey, game_day, lookup, make_key
+from .public_betting import load_public_pct
 from .schedule import ET, estimate_paid_runs, is_dense, snapshot_due
 from .storage import InjuryKey, Store
 
@@ -56,23 +57,25 @@ def _safe_injuries() -> set[InjuryKey] | None:
         return None
 
 
-def _safe_splits(now: datetime) -> list[Split]:
+def _safe_board(now: datetime) -> tuple[list[Split], list[Opener]]:
     try:
-        return fetch_splits(dates_to_query(now, SPLIT_DAYS))
+        return fetch_board(dates_to_query(now, SPLIT_DAYS))
     except (requests.RequestException, ValueError) as exc:
-        log.warning("No se pudo leer Action Network (%s); RLM usará solo public_betting.csv",
+        log.warning("No se pudo leer Action Network (%s); RLM usará public_betting.csv y el primer snapshot",
                     type(exc).__name__)
-        return []
+        return [], []
 
 
-def _public_pct(splits: list[Split], settings: Settings) -> dict[PublicKey, float]:
+def _public_pct(splits: list[Split], settings: Settings) -> dict[GameKey, float]:
     """% de tickets de Action Network; el CSV manual tiene prioridad si existe."""
-    public = {make_key(s.away, s.home, s.market): s.tickets_pct for s in splits}
+    public = {make_key(s.away, s.home, s.market, game_day(s.start_time)): s.tickets_pct
+              for s in splits if s.start_time}
     return {**public, **load_public_pct(settings.public_betting_csv)}
 
 
 def _detect(store: Store, run_ts: str, quotes: list[Quote], prev_injuries: set[InjuryKey] | None,
-            curr_injuries: set[InjuryKey] | None, public: dict[PublicKey, float]) -> list[Alert]:
+            curr_injuries: set[InjuryKey] | None, public: dict[GameKey, float],
+            openers: dict[GameKey, float]) -> list[Alert]:
     lines = {(q.event_id, q.book, q.market): q for q in quotes}
     alerts: list[Alert] = []
     for (event_id, book, market), quote in sorted(lines.items()):
@@ -80,8 +83,10 @@ def _detect(store: Store, run_ts: str, quotes: list[Quote], prev_injuries: set[I
         if len(series) < 2:
             continue
         news = news_for_teams(prev_injuries, curr_injuries, (quote.home, quote.away))
-        pct = public.get(make_key(quote.away, quote.home, market))
-        for signal in analyze(series, market, news, pct):
+        day = game_day(quote.commence_time)
+        pct = lookup(public, quote.away, quote.home, market, day)
+        opening = lookup(openers, quote.away, quote.home, market, day)
+        for signal in analyze(series, market, news, pct, opening):
             alerts.append(Alert(run_ts, event_id, f"{quote.away} @ {quote.home}",
                                 datetime.fromisoformat(quote.commence_time), book, market,
                                 series[-1].value, signal))
@@ -129,10 +134,11 @@ def _run(settings: Settings, store: Store, now: datetime, run_ts: str) -> None:
     if curr_injuries is not None:
         store.save_injuries(run_ts, curr_injuries)
 
-    splits = _safe_splits(now)
+    splits, openers = _safe_board(now)
     store.save_splits(run_ts, splits)
+    store.save_openers(openers)
     public = _public_pct(splits, settings)
-    alerts = _detect(store, run_ts, quotes, prev_injuries, curr_injuries, public)
+    alerts = _detect(store, run_ts, quotes, prev_injuries, curr_injuries, public, store.openers())
     new_alerts = [a for a in alerts if store.add_alert(
         a.signature, run_ts, a.signal.kind, a.signal.severity, a.event_id, a.book, a.market, a.text())]
     dispatch(new_alerts, settings.alerts_log, settings.telegram_token, settings.telegram_chat_id)
@@ -142,7 +148,7 @@ def _run(settings: Settings, store: Store, now: datetime, run_ts: str) -> None:
     log.info("Corrida OK: %d partidos, %d cotizaciones, %d alertas nuevas | créditos: "
              "esta llamada=%s, usados=%s, restantes=%s",
              n_events, len(quotes), len(new_alerts), usage.last, usage.used, usage.remaining)
-    log.info("Splits de Action Network: %d mercados con %% de tickets", len(splits))
+    log.info("Action Network: %d mercados con %% de tickets, %d líneas de apertura", len(splits), len(openers))
     _safe_dashboard(settings, store)
 
 

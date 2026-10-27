@@ -2,7 +2,8 @@
 
 Endpoint JSON público que usa su web: /web/v2/scoreboard/publicbetting/nba
 Cada partido trae markets["15"]["event"]["spread"|"total"|"moneyline"] con
-bet_info.tickets.percent y bet_info.money.percent por lado.
+bet_info.tickets.percent y bet_info.money.percent por lado, y markets["30"] con la
+línea de apertura del mercado ("Open").
 """
 from __future__ import annotations
 
@@ -13,8 +14,11 @@ from typing import Any, Iterable
 
 import requests
 
+from .lines import implied_prob
+
 URL = "https://api.actionnetwork.com/web/v2/scoreboard/publicbetting/nba"
 CONSENSUS_BOOK_ID = "15"
+OPEN_BOOK_ID = "30"  # línea de apertura del mercado
 TIMEOUT_S = 20
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/128.0 Safari/537.36"
 ET = ZoneInfo("America/New_York")  # Action Network agrupa por fecha de EE.UU.
@@ -32,6 +36,15 @@ class Split:
     tickets_pct: float     # % de tickets en el local (o el over)
     money_pct: float | None
     num_bets: int | None
+
+
+@dataclass(frozen=True)
+class Opener:
+    away: str
+    home: str
+    start_time: str
+    market: str   # spreads: puntos del local | totals: total | h2h: prob. sin vig del local (%)
+    value: float
 
 
 def dates_to_query(now: datetime, days: int) -> list[date]:
@@ -67,12 +80,45 @@ def parse_splits(payload: dict[str, Any]) -> list[Split]:
     return splits
 
 
-def fetch_splits(days: Iterable[date]) -> list[Split]:
+def _side(outcomes: list[dict[str, Any]], side: str) -> dict[str, Any] | None:
+    return next((o for o in outcomes if o.get("side") == side), None)
+
+
+def _opener_value(an_key: str, outcomes: list[dict[str, Any]]) -> float | None:
+    if an_key == "moneyline":
+        home, away = _side(outcomes, "home"), _side(outcomes, "away")
+        if not home or not away or not home.get("odds") or not away.get("odds"):
+            return None
+        p_home, p_away = implied_prob(int(home["odds"])), implied_prob(int(away["odds"]))
+        return round(100 * p_home / (p_home + p_away), 2)
+    first = _side(outcomes, MARKET_MAP[an_key][1])
+    return float(first["value"]) if first and first.get("value") is not None else None
+
+
+def parse_openers(payload: dict[str, Any]) -> list[Opener]:
+    openers: list[Opener] = []
+    for game in payload.get("games", []):
+        teams = _team_names(game)
+        event = ((game.get("markets") or {}).get(OPEN_BOOK_ID) or {}).get("event") or {}
+        if teams is None:
+            continue
+        for an_key, (market, _first_side) in MARKET_MAP.items():
+            value = _opener_value(an_key, event.get(an_key, []))
+            if value is not None:
+                openers.append(Opener(teams[0], teams[1], game.get("start_time", ""), market, value))
+    return openers
+
+
+def fetch_board(days: Iterable[date]) -> tuple[list[Split], list[Opener]]:
+    """Splits de tickets/dinero y líneas de apertura para los días dados (ET)."""
     splits: list[Split] = []
+    openers: list[Opener] = []
     for day in days:
-        resp = requests.get(URL, params={"bookIds": CONSENSUS_BOOK_ID, "date": day.strftime("%Y%m%d"),
-                                         "periods": "event"},
+        resp = requests.get(URL, params={"bookIds": f"{CONSENSUS_BOOK_ID},{OPEN_BOOK_ID}",
+                                         "date": day.strftime("%Y%m%d"), "periods": "event"},
                             headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT_S)
         resp.raise_for_status()
-        splits.extend(parse_splits(resp.json()))
-    return splits
+        payload = resp.json()
+        splits.extend(parse_splits(payload))
+        openers.extend(parse_openers(payload))
+    return splits, openers

@@ -12,7 +12,7 @@ from .alerts import KIND_NAMES, MARKET_NAMES, SEVERITY_LABEL
 from .config import Settings
 from .lines import LinePoint, format_value
 from .odds_client import Quote
-from .public_betting import make_key
+from .game_keys import GameKey, game_day, lookup
 from .storage import Store
 
 ALERT_WINDOW = timedelta(hours=24)
@@ -20,6 +20,7 @@ DIVERGENCE_PP = 10        # dinero vs tickets: diferencia que se resalta
 SPARK_W, SPARK_H, SPARK_PAD = 132, 34, 4
 REFRESH_S = 300
 MARKET_ORDER = ("spreads", "totals", "h2h")
+EPS = 1e-9
 SEVERITY_CLASS = {"high": "sev-high", "medium": "sev-medium", "low": "sev-low"}
 
 Sides = dict[str, tuple[float | None, int]]
@@ -89,32 +90,65 @@ def _splits_cell(split: Split | None, market: str, home: str, away: str) -> str:
     return html
 
 
-def _movement(points: Sequence[LinePoint], market: str) -> str:
-    if len(points) < 2:
-        return '<span class="muted">sin cambios aún</span>'
-    first, last = points[0], points[-1]
-    delta = last.value - first.value
-    unit = "pp" if market == "h2h" else ""
-    return (f'{escape(format_value(market, first.value))} → {escape(format_value(market, last.value))} '
-            f'<span class="delta">({delta:+.1f}{unit})</span>')
+def _spread_label(home_line: float, home: str, away: str) -> str:
+    """Spread visto desde el favorito: 'Celtics -13.5' (la línea del local -13.5 o del visitante)."""
+    if abs(home_line) < EPS:
+        return "PK"
+    if home_line < 0:
+        return f"{_short(home)} {home_line:g}"
+    return f"{_short(away)} -{home_line:g}"
 
 
-def _game_card(event_id: str, quotes: list[Quote], store: Store, splits: dict, alerts: list) -> str:
+def _verdict(change: float, unit: str = "") -> str:
+    if abs(change) < EPS:
+        return "sin cambio"
+    return f"sube {change:.1f}{unit}" if change > 0 else f"baja {-change:.1f}{unit}"
+
+
+def describe_move(market: str, opening: float, current: float, home: str, away: str) -> tuple[str, str]:
+    """(texto 'apertura → actual', veredicto). En spreads, 'sube' = el favorito da más puntos."""
+    if market == "spreads":
+        text = f"{_spread_label(opening, home, away)} → {_spread_label(current, home, away)}"
+        if opening * current < 0:
+            return text, "cambio de favorito"
+        return text, _verdict(abs(current) - abs(opening))
+    if market == "totals":
+        return f"{opening:g} → {current:g}", _verdict(current - opening)
+    return (f"{_short(home)} {opening:.1f}% → {current:.1f}%",
+            _verdict(current - opening, " pp prob. local"))
+
+
+def _movement(points: Sequence[LinePoint], market: str, opening: float | None, home: str, away: str) -> str:
+    if not points:
+        return '<span class="muted">—</span>'
+    base = opening if opening is not None else points[0].value
+    text, verdict = describe_move(market, base, points[-1].value, home, away)
+    source = "apertura del mercado" if opening is not None else "desde el 1er snapshot de DK"
+    if opening is not None and abs(points[0].value - opening) > EPS:
+        source += f" · DK abrió {format_value(market, points[0].value)}"
+    return (f'{escape(text)} <span class="delta">({escape(verdict)})</span>'
+            f'<div class="muted small">{escape(source)}</div>')
+
+
+def _game_card(event_id: str, quotes: list[Quote], store: Store, splits: dict[GameKey, Split],
+               openers: dict[GameKey, float], alerts: list) -> str:
     q0 = quotes[0]
     home, away = q0.home, q0.away
     start = datetime.fromisoformat(q0.commence_time).astimezone().strftime("%a %d/%m %H:%M")
     by_market: dict[str, Sides] = defaultdict(dict)
     for q in quotes:
         by_market[q.market][q.outcome] = (q.point, q.price)
+    day = game_day(q0.commence_time)
     rows = []
     for market in MARKET_ORDER:
         if market not in by_market:
             continue
         points = store.line_history(event_id, q0.book, market)
-        split = splits.get(make_key(away, home, market))
+        split = lookup(splits, away, home, market, day)
+        opening = lookup(openers, away, home, market, day)
         rows.append(f'<tr><th scope="row">{MARKET_NAMES[market]}</th>'
                     f'<td class="num">{escape(_current_text(market, by_market[market], home, away))}</td>'
-                    f'<td>{_movement(points, market)}</td><td>{_sparkline(points, market)}</td>'
+                    f'<td>{_movement(points, market, opening, home, away)}</td><td>{_sparkline(points, market)}</td>'
                     f'<td class="splits">{_splits_cell(split, market, home, away)}</td></tr>')
     chips = "".join(f'<span class="chip {SEVERITY_CLASS[sev]}">{escape(KIND_NAMES[kind])}</span>'
                     for kind, sev in sorted({(a[2], a[3]) for a in alerts if a[1] == event_id}))
@@ -146,11 +180,12 @@ def build_dashboard(store: Store, settings: Settings, now: datetime | None = Non
         if datetime.fromisoformat(q.commence_time) > now:
             games[q.event_id].append(q)
     splits = store.latest_splits()
+    openers = store.openers()
     alerts = store.recent_alerts((now - ALERT_WINDOW).replace(microsecond=0).isoformat())
     remaining = store.last_remaining()
     updated = datetime.fromisoformat(run_ts).astimezone().strftime("%d/%m/%Y %H:%M") if run_ts else "—"
     high = sum(1 for a in alerts if a[3] == "high")
-    cards = "".join(_game_card(eid, qs, store, splits, alerts) for eid, qs in games.items())
+    cards = "".join(_game_card(eid, qs, store, splits, openers, alerts) for eid, qs in games.items())
     html = TEMPLATE.format(
         refresh=REFRESH_S, updated=updated, games=len(games), high=high, total_alerts=len(alerts),
         remaining="—" if remaining is None else remaining, splits=len(splits),
@@ -208,6 +243,7 @@ tbody tr:last-child th, tbody tr:last-child td {{ border-bottom:0; }}
 .legend {{ display:flex; gap:14px; font-size:12px; color:var(--text-secondary); }}
 .legend i {{ display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:5px; vertical-align:-1px; }}
 .flag {{ font-size:12px; margin-top:4px; }}
+.small {{ font-size:11px; margin-top:2px; }}
 .chip {{ display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px;
   border:1px solid var(--border); color:var(--text-primary); }}
 .chip::before {{ content:""; display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:5px;

@@ -118,10 +118,11 @@ def detect_noise(series: Sequence[LinePoint], market: str, th: Thresholds) -> Si
 
 
 def detect_rlm(series: Sequence[LinePoint], market: str, th: Thresholds,
-               public_pct: float | None) -> Signal | None:
+               public_pct: float | None, open_value: float | None = None) -> Signal | None:
     """La línea se mueve en contra del lado con mayoría de tickets.
 
     public_pct = % de tickets en el local (spreads/h2h) o en el over (totals).
+    open_value = apertura del mercado; si falta se usa el primer snapshot.
     """
     if public_pct is None:
         return None
@@ -131,22 +132,23 @@ def detect_rlm(series: Sequence[LinePoint], market: str, th: Thresholds,
         side_sign, side_pct = -1, 100 - public_pct
     else:
         return None
-    first, last = series[0], series[-1]
-    adverse = -EXPENSIVE_DIRECTION[market] * side_sign * (last.value - first.value)
+    opening = open_value if open_value is not None else series[0].value
+    last = series[-1]
+    adverse = -EXPENSIVE_DIRECTION[market] * side_sign * (last.value - opening)
     if adverse < th.rlm_min_move - EPS:
         return None
     side = SIDE_NAMES[market][side_sign]
     return Signal(RLM, HIGH, f"{side_pct:.0f}% de tickets en {side} pero la línea se movió en contra: "
-                             f"{format_value(market, first.value)} -> {format_value(market, last.value)}")
+                             f"apertura {format_value(market, opening)} -> {format_value(market, last.value)}")
 
 
 def analyze(series: Sequence[LinePoint], market: str, injury_news: Sequence[str] = (),
-            public_pct: float | None = None) -> list[Signal]:
+            public_pct: float | None = None, open_value: float | None = None) -> list[Signal]:
     th = THRESHOLDS.get(market)
     if th is None or len(series) < 2:
         return []
     movement = (detect_jump(series, market, th, injury_news)
                 or detect_gradual(series, market, th)
                 or detect_noise(series, market, th))
-    rlm = detect_rlm(series, market, th, public_pct)
+    rlm = detect_rlm(series, market, th, public_pct, open_value)
     return [signal for signal in (movement, rlm) if signal is not None]

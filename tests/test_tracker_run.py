@@ -16,7 +16,7 @@ def stub_apis(monkeypatch, fresh_remaining):
     monkeypatch.setattr(tracker_mod, "fetch_odds",
                         lambda *args: (parse_odds([EVENT]), Usage(fresh_remaining - 3, 3, 3)))
     monkeypatch.setattr(tracker_mod, "_safe_injuries", lambda: None)
-    monkeypatch.setattr(tracker_mod, "_safe_splits", lambda now: [])
+    monkeypatch.setattr(tracker_mod, "_safe_board", lambda now: ([], []))
 
 
 def last_status(settings):
