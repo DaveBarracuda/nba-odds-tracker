@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime, timedelta, timezone
 
 from tracker.action_network import Opener, parse_openers
-from tracker.dashboard import describe_move
+from tracker.dashboard import describe_move, line_label
 from tracker.detectors import RLM, analyze
 from tracker.game_keys import lookup
 from tracker.lines import LinePoint
@@ -84,3 +84,9 @@ def test_old_splits_table_is_migrated(tmp_path):
     store = Store(path)
     assert len(store.latest_splits()) == 1
     store.close()
+
+
+def test_dk_open_note_uses_favorite_notation():
+    # DEN @ NOP: el local (Pelicans) +4.5 es Nuggets -4.5
+    assert line_label("spreads", 4.5, "New Orleans Pelicans", "Denver Nuggets") == "Nuggets -4.5"
+    assert line_label("totals", 238.5, "a", "b") == "238.5"

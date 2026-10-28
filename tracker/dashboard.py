@@ -99,6 +99,13 @@ def _spread_label(home_line: float, home: str, away: str) -> str:
     return f"{_short(away)} -{home_line:g}"
 
 
+def line_label(market: str, value: float, home: str, away: str) -> str:
+    """Valor de una línea en la misma notación que describe_move (spread desde el favorito)."""
+    if market == "spreads":
+        return _spread_label(value, home, away)
+    return format_value(market, value)
+
+
 def _verdict(change: float, unit: str = "") -> str:
     if abs(change) < EPS:
         return "sin cambio"
@@ -125,7 +132,7 @@ def _movement(points: Sequence[LinePoint], market: str, opening: float | None, h
     text, verdict = describe_move(market, base, points[-1].value, home, away)
     source = "apertura del mercado" if opening is not None else "desde el 1er snapshot de DK"
     if opening is not None and abs(points[0].value - opening) > EPS:
-        source += f" · DK abrió {format_value(market, points[0].value)}"
+        source += f" · DK abrió {line_label(market, points[0].value, home, away)}"
     return (f'{escape(text)} <span class="delta">({escape(verdict)})</span>'
             f'<div class="muted small">{escape(source)}</div>')
 
