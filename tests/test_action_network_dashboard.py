@@ -52,6 +52,6 @@ def test_dashboard_renders_lines_splits_and_divergence(tmp_path):
     path = build_dashboard(store, settings, now=datetime(2026, 10, 20, 12, 30, tzinfo=timezone.utc))
     store.close()
     html = path.read_text(encoding="utf-8")
-    assert "Philadelphia 76ers" in html and "Knicks -3.5 (-110)" in html
+    assert "Philadelphia 76ers" in html and "Knicks -3.5" in html and "-3.5 (-110)" in html
     assert "70 / 30" in html                       # tickets spread
     assert "Dinero +25 pp sobre tickets en <b>76ers</b>" in html

@@ -9,7 +9,8 @@ from typing import Sequence
 
 import requests
 
-from .detectors import HIGH, LOW, MEDIUM, RLM, Signal
+from .config import book_name
+from .detectors import HIGH, LOW, MEDIUM, OFF_MARKET, RLM, Signal
 
 log = logging.getLogger(__name__)
 
@@ -19,6 +20,7 @@ KIND_NAMES = {
     "GRADUAL": "Movimiento Gradual",
     "INFO": "Movimiento por Información",
     "NOISE": "Ruido de mercado",
+    "OFF_MARKET": "Línea fuera de mercado",
 }
 MARKET_NAMES = {"spreads": "Spread", "totals": "Total", "h2h": "Moneyline"}
 SEVERITY_RANK = {LOW: 0, MEDIUM: 1, HIGH: 2}
@@ -40,14 +42,14 @@ class Alert:
 
     @property
     def signature(self) -> str:
-        # RLM se re-alerta solo si la línea cambia; el resto, una vez por corrida
-        anchor = f"{self.value:.2f}" if self.signal.kind == RLM else self.run_ts
+        # RLM y fuera de mercado se re-alertan solo si la línea cambia; el resto, una vez por corrida
+        anchor = f"{self.value:.2f}" if self.signal.kind in (RLM, OFF_MARKET) else self.run_ts
         return "|".join((self.event_id, self.book, self.market, self.signal.kind, anchor))
 
     def text(self) -> str:
         start = self.commence.astimezone().strftime("%d/%m %H:%M")
         return (f"[{SEVERITY_LABEL[self.signal.severity]}] {KIND_NAMES[self.signal.kind]} | "
-                f"{self.matchup} ({start}) | {self.book} {MARKET_NAMES.get(self.market, self.market)} | "
+                f"{self.matchup} ({start}) | {book_name(self.book)} {MARKET_NAMES.get(self.market, self.market)} | "
                 f"{self.signal.detail}")
 
 

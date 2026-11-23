@@ -16,6 +16,19 @@ powershell -ExecutionPolicy Bypass -File register_task.ps1   # alternativa local
 
 Configuración en `.env` (ver `.env.example`). Salidas en `data/`: `odds.sqlite3`, `alerts.log`, `tracker.log`.
 
+## Varias casas (comparador)
+
+Por defecto se cotizan **10 casas**: DraftKings, FanDuel, BetMGM, Caesars, ESPN BET, Fanatics, BetRivers,
+Hard Rock, Circa y BetOnline (variable `BOOKMAKERS`; hasta 10 casas cuestan lo mismo que una: 3 créditos).
+
+- Las alertas de movimiento (RLM, steam, gradual, información, ruido) se calculan sobre la **línea de consenso**
+  (mediana de las casas), así no se repiten por casa. Steam/información indican cuántas casas se movieron igual.
+- **Línea fuera de mercado**: una casa se separa del consenso ≥ 1 pt (spread), ≥ 1.5 (total) o ≥ 3 pp (moneyline)
+  con al menos 4 casas cotizando; dice en qué lado está el valor.
+- Dashboard: por partido, tabla desplegable con las 10 casas y ★ en el mejor precio de cada lado.
+- Almacenamiento: solo se guardan las cotizaciones que cambian (la historia se reconstruye rellenando hacia
+  adelante) y se borran partidos de hace más de `RETENTION_DAYS` (30 por defecto) y lesiones de más de 2 días.
+
 ## Tipos de alerta
 
 Spreads/totals se miden en puntos; moneyline en puntos porcentuales de probabilidad sin vig del local.

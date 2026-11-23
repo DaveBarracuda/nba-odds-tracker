@@ -11,8 +11,9 @@ from .action_network import Opener, Split, dates_to_query, fetch_board
 from .alerts import Alert, dispatch
 from .config import Settings
 from .dashboard import build_dashboard
-from .detectors import analyze
+from .detectors import analyze, detect_off_market
 from .injuries import fetch_injuries, news_for_teams
+from .lines import LinePoint, consensus_series
 from .odds_client import OddsApiError, Quote, Usage, fetch_events, fetch_odds
 from .game_keys import GameKey, game_day, lookup, make_key
 from .public_betting import load_public_pct
@@ -23,6 +24,8 @@ log = logging.getLogger(__name__)
 DAYS_PER_MONTH = 30
 ESTIMATE_DAYS = 7
 SPLIT_DAYS = 4  # días de calendario (ET) a consultar en Action Network
+CONSENSUS_BOOK = "consenso"
+INJURY_KEEP_DAYS = 2
 
 
 def _in_active_hours(settings: Settings) -> bool:
@@ -76,21 +79,43 @@ def _public_pct(splits: list[Split], settings: Settings) -> dict[GameKey, float]
 def _detect(store: Store, run_ts: str, quotes: list[Quote], prev_injuries: set[InjuryKey] | None,
             curr_injuries: set[InjuryKey] | None, public: dict[GameKey, float],
             openers: dict[GameKey, float]) -> list[Alert]:
-    lines = {(q.event_id, q.book, q.market): q for q in quotes}
+    """Movimientos sobre la línea de consenso (mediana de las casas) y casas fuera de mercado."""
+    games = {(q.event_id, q.market): q for q in quotes}
     alerts: list[Alert] = []
-    for (event_id, book, market), quote in sorted(lines.items()):
-        series = store.line_history(event_id, book, market)
+    for (event_id, market), quote in sorted(games.items()):
+        by_book = store.book_series(event_id, market)
+        series = consensus_series(by_book)
+        if not series:
+            continue
+        matchup, start = f"{quote.away} @ {quote.home}", datetime.fromisoformat(quote.commence_time)
+        current = {book: pts[-1].value for book, pts in by_book.items() if pts and pts[-1].ts == series[-1].ts}
+        for book, value, signal in detect_off_market(current, market):
+            alerts.append(Alert(run_ts, event_id, matchup, start, book, market, value, signal))
         if len(series) < 2:
             continue
         news = news_for_teams(prev_injuries, curr_injuries, (quote.home, quote.away))
         day = game_day(quote.commence_time)
         pct = lookup(public, quote.away, quote.home, market, day)
         opening = lookup(openers, quote.away, quote.home, market, day)
-        for signal in analyze(series, market, news, pct, opening):
-            alerts.append(Alert(run_ts, event_id, f"{quote.away} @ {quote.home}",
-                                datetime.fromisoformat(quote.commence_time), book, market,
+        for signal in analyze(series, market, news, pct, opening, books_moved(by_book, series)):
+            alerts.append(Alert(run_ts, event_id, matchup, start, CONSENSUS_BOOK, market,
                                 series[-1].value, signal))
     return alerts
+
+
+def books_moved(by_book: dict[str, list[LinePoint]], series: list[LinePoint]) -> tuple[int, int]:
+    """(casas que se movieron como el consenso en el último intervalo, casas presentes en ambos)."""
+    if len(series) < 2:
+        return 0, 0
+    prev_ts, last_ts = series[-2].ts, series[-1].ts
+    direction = series[-1].value - series[-2].value
+    moved = present = 0
+    for points in by_book.values():
+        values = {p.ts: p.value for p in points}
+        if prev_ts in values and last_ts in values:
+            present += 1
+            moved += (values[last_ts] - values[prev_ts]) * direction > 0
+    return moved, present
 
 
 def _run(settings: Settings, store: Store, now: datetime, run_ts: str) -> None:
@@ -127,7 +152,7 @@ def _run(settings: Settings, store: Store, now: datetime, run_ts: str) -> None:
         log.error("%s", exc)
         store.record_run(run_ts, "error")
         return
-    store.save_quotes(run_ts, quotes)
+    changed = store.save_quotes(run_ts, quotes)
 
     curr_injuries = _safe_injuries()
     prev_injuries = store.previous_injuries(run_ts)
@@ -144,10 +169,16 @@ def _run(settings: Settings, store: Store, now: datetime, run_ts: str) -> None:
     dispatch(new_alerts, settings.alerts_log, settings.telegram_token, settings.telegram_chat_id)
 
     n_events = len({q.event_id for q in quotes})
+    n_books = len({q.book for q in quotes})
     store.record_run(run_ts, "ok", n_events, usage)
-    log.info("Corrida OK: %d partidos, %d cotizaciones, %d alertas nuevas | créditos: "
-             "esta llamada=%s, usados=%s, restantes=%s",
-             n_events, len(quotes), len(new_alerts), usage.last, usage.used, usage.remaining)
+    log.info("Corrida OK: %d partidos, %d casas, %d cotizaciones (%d cambios guardados), %d alertas nuevas | "
+             "créditos: esta llamada=%s, usados=%s, restantes=%s",
+             n_events, n_books, len(quotes), changed, len(new_alerts), usage.last, usage.used, usage.remaining)
+    if settings.retention_days > 0:
+        pruned = store.prune(now - timedelta(days=settings.retention_days),
+                             now - timedelta(days=INJURY_KEEP_DAYS))
+        if pruned:
+            log.info("Limpieza: %d filas de partidos de hace más de %d días", pruned, settings.retention_days)
     log.info("Action Network: %d mercados con %% de tickets, %d líneas de apertura", len(splits), len(openers))
     _safe_dashboard(settings, store)
 

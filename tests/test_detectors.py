@@ -42,7 +42,7 @@ def test_no_gradual_after_reversal_is_noise_bounce():
 
 
 def test_noise_on_juice_only_change():
-    signals = analyze(make_series([220.5, 220.5], prices=[-110, -115]), "totals")
+    signals = analyze(make_series([220.5, 220.5], prices=[-110, -120]), "totals")
     assert kinds(signals) == [NOISE]
     assert "juice" in signals[0].detail
 
@@ -73,3 +73,7 @@ def test_rlm_public_on_away_moneyline_home_prob_rises():
 
 def test_no_rlm_when_public_split_is_balanced():
     assert RLM not in kinds(analyze(make_series([-5, -4]), "spreads", public_pct=55))
+
+
+def test_small_juice_change_is_not_reported():
+    assert analyze(make_series([220.5, 220.5], prices=[-110, -115]), "totals") == []

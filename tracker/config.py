@@ -8,7 +8,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 
-DEFAULT_BOOKMAKERS = "draftkings"
+# 10 casas = 1 región de The Odds API: el snapshot cuesta lo mismo que con una sola
+DEFAULT_BOOKMAKERS = ("draftkings,fanduel,betmgm,williamhill_us,espnbet,"
+                      "fanatics,betrivers,hardrockbet,circasports,betonlineag")
+DEFAULT_RETENTION_DAYS = 30
+BOOK_NAMES = {
+    "draftkings": "DraftKings", "fanduel": "FanDuel", "betmgm": "BetMGM", "williamhill_us": "Caesars",
+    "espnbet": "ESPN BET", "fanatics": "Fanatics", "betrivers": "BetRivers", "hardrockbet": "Hard Rock",
+    "circasports": "Circa", "betonlineag": "BetOnline",
+}
+
+
+def book_name(key: str) -> str:
+    return BOOK_NAMES.get(key, key)
 DEFAULT_MARKETS = "h2h,spreads,totals"
 DEFAULT_LOOKAHEAD_HOURS = 48
 DEFAULT_MIN_CREDITS = 20
@@ -42,6 +54,7 @@ class Settings:
     alerts_log: Path
     tracker_log: Path
     dashboard_html: Path
+    retention_days: int = DEFAULT_RETENTION_DAYS  # 0 = conservar todo
 
     @property
     def credits_per_call(self) -> int:
@@ -78,7 +91,7 @@ def get_settings() -> Settings:
         raise SystemExit("Falta ODDS_API_KEY (defínela en .env)")
     return Settings(
         api_key=api_key,
-        bookmakers=os.environ.get("BOOKMAKERS", DEFAULT_BOOKMAKERS).strip(),
+        bookmakers=(os.environ.get("BOOKMAKERS") or DEFAULT_BOOKMAKERS).strip(),
         markets=_parse_markets(os.environ.get("MARKETS", DEFAULT_MARKETS)),
         lookahead_hours=int(os.environ.get("LOOKAHEAD_HOURS", DEFAULT_LOOKAHEAD_HOURS)),
         min_credits=int(os.environ.get("MIN_CREDITS_REMAINING", DEFAULT_MIN_CREDITS)),
@@ -90,4 +103,5 @@ def get_settings() -> Settings:
         alerts_log=DATA_DIR / "alerts.log",
         tracker_log=DATA_DIR / "tracker.log",
         dashboard_html=DATA_DIR / "dashboard.html",
+        retention_days=int(os.environ.get("RETENTION_DAYS") or DEFAULT_RETENTION_DAYS),
     )

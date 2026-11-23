@@ -5,9 +5,11 @@ probabilidad implícita sin vig del local.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Sequence
+from dataclasses import dataclass, replace
+from statistics import median
+from typing import Mapping, Sequence
 
+from .config import book_name
 from .lines import LinePoint, format_value
 
 RLM = "RLM"
@@ -15,6 +17,7 @@ STEAM = "STEAM"
 GRADUAL = "GRADUAL"
 INFO = "INFO"
 NOISE = "NOISE"
+OFF_MARKET = "OFF_MARKET"
 
 HIGH, MEDIUM, LOW = "high", "medium", "low"
 
@@ -46,6 +49,12 @@ MAX_JUMP_GAP_HOURS = 2.5   # más tiempo entre snapshots ya no es un movimiento 
 GRADUAL_WINDOW_STEPS = 8   # intervalos hacia atrás para buscar una tendencia
 GRADUAL_MIN_STEPS = 3      # movimientos mínimos en la misma dirección
 RLM_PUBLIC_MIN_PCT = 60.0  # % de tickets para considerar un lado "público"
+# Una casa se separa del consenso al menos esto: precio de valor en un lado
+OFF_MARKET_MIN = {"spreads": 1.0, "totals": 1.5, "h2h": 3.0}
+MIN_BOOKS_FOR_CONSENSUS = 4
+# Por debajo de esto un cambio del consenso (mediana de varias casas) no se reporta ni como ruido
+NOISE_FLOOR = {"spreads": 0.25, "totals": 0.25, "h2h": 0.5}
+JUICE_NOISE_MIN = 10  # centavos
 EPS = 1e-9
 
 
@@ -104,8 +113,8 @@ def detect_noise(series: Sequence[LinePoint], market: str, th: Thresholds) -> Si
     """Cambios de juice, ajustes menores o rebotes que se revierten."""
     prev, last = series[-2], series[-1]
     delta = last.value - prev.value
-    if abs(delta) < EPS:
-        if last.price != prev.price:
+    if abs(delta) < NOISE_FLOOR.get(market, EPS) - EPS:
+        if abs(last.price - prev.price) >= JUICE_NOISE_MIN:
             return Signal(NOISE, LOW, f"solo cambio de juice {prev.price:+d} -> {last.price:+d}")
         return None
     if len(series) >= 3 and abs(last.value - series[-3].value) < EPS:
@@ -142,13 +151,37 @@ def detect_rlm(series: Sequence[LinePoint], market: str, th: Thresholds,
                              f"apertura {format_value(market, opening)} -> {format_value(market, last.value)}")
 
 
+def detect_off_market(current: Mapping[str, float], market: str) -> list[tuple[str, float, Signal]]:
+    """Casas cuya línea actual se separa del consenso: (casa, valor, señal)."""
+    if market not in OFF_MARKET_MIN or len(current) < MIN_BOOKS_FOR_CONSENSUS:
+        return []
+    consensus = median(current.values())
+    found = []
+    for book, value in sorted(current.items()):
+        diff = value - consensus
+        if abs(diff) < OFF_MARKET_MIN[market] - EPS:
+            continue
+        # spreads: más puntos al local favorecen al local; totals: total bajo favorece al over;
+        # h2h: prob. del local más baja = mejor precio para el local
+        first_side = diff > 0 if market == "spreads" else diff < 0
+        side = SIDE_NAMES[market][1 if first_side else -1]
+        found.append((book, value, Signal(OFF_MARKET, MEDIUM,
+                                          f"{book_name(book)} {format_value(market, value)} vs consenso "
+                                          f"{format_value(market, consensus)} ({diff:+.1f}): valor en {side}")))
+    return found
+
+
 def analyze(series: Sequence[LinePoint], market: str, injury_news: Sequence[str] = (),
-            public_pct: float | None = None, open_value: float | None = None) -> list[Signal]:
+            public_pct: float | None = None, open_value: float | None = None,
+            books_moved: tuple[int, int] | None = None) -> list[Signal]:
     th = THRESHOLDS.get(market)
     if th is None or len(series) < 2:
         return []
     movement = (detect_jump(series, market, th, injury_news)
                 or detect_gradual(series, market, th)
                 or detect_noise(series, market, th))
+    if movement is not None and movement.kind in (STEAM, INFO) and books_moved and books_moved[1] > 1:
+        movement = replace(movement, detail=f"{movement.detail}; {books_moved[0]}/{books_moved[1]} casas "
+                                            "se movieron en la misma dirección")
     rlm = detect_rlm(series, market, th, public_pct, open_value)
     return [signal for signal in (movement, rlm) if signal is not None]

@@ -1,8 +1,11 @@
 """Convierte cotizaciones de un snapshot en un valor de línea comparable."""
 from __future__ import annotations
 
+from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
+from statistics import median
+from typing import Mapping, Sequence
 
 
 @dataclass(frozen=True)
@@ -44,3 +47,13 @@ def format_value(market: str, value: float) -> str:
     if market == "totals":
         return f"{value:g}"
     return f"{value:.1f}%"
+
+
+def consensus_series(by_book: Mapping[str, Sequence[LinePoint]]) -> list[LinePoint]:
+    """Línea de consenso: mediana entre las casas en cada snapshot."""
+    by_ts: dict[datetime, list[LinePoint]] = defaultdict(list)
+    for points in by_book.values():
+        for point in points:
+            by_ts[point.ts].append(point)
+    return [LinePoint(ts, round(median(p.value for p in pts), 2), int(median(p.price for p in pts)))
+            for ts, pts in sorted(by_ts.items())]

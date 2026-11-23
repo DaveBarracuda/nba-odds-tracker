@@ -9,8 +9,8 @@ from typing import Sequence
 
 from .action_network import Split
 from .alerts import KIND_NAMES, MARKET_NAMES, SEVERITY_LABEL
-from .config import Settings
-from .lines import LinePoint, format_value
+from .config import BOOK_NAMES, Settings, book_name
+from .lines import LinePoint, consensus_series, format_value
 from .odds_client import Quote
 from .game_keys import GameKey, game_day, lookup
 from .storage import Store
@@ -24,22 +24,72 @@ EPS = 1e-9
 SEVERITY_CLASS = {"high": "sev-high", "medium": "sev-medium", "low": "sev-low"}
 
 Sides = dict[str, tuple[float | None, int]]
+BookSides = dict[str, dict[str, Sides]]  # casa -> mercado -> lado -> (puntos, precio)
+
+# Qué es "mejor" para quien apuesta ese lado: más puntos, total más bajo (over) o alto (under), mejor momio
+BEST_KEY = {
+    ("spreads", "home"): lambda point, price: (point, price),
+    ("spreads", "away"): lambda point, price: (point, price),
+    ("totals", "over"): lambda point, price: (-point, price),
+    ("totals", "under"): lambda point, price: (point, price),
+    ("h2h", "home"): lambda point, price: price,
+    ("h2h", "away"): lambda point, price: price,
+}
 
 
 def _short(team: str) -> str:
     return team.split()[-1]
 
 
-def _current_text(market: str, sides: Sides, home: str, away: str) -> str:
-    if market == "spreads" and "home" in sides:
-        point, price = sides["home"]
-        return f"{_short(home)} {point:+g} ({price:+d})"
-    if market == "totals" and "over" in sides:
-        point, price = sides["over"]
-        return f"O/U {point:g} (O {price:+d})"
-    if market == "h2h" and "home" in sides and "away" in sides:
-        return f"{_short(home)} {sides['home'][1]:+d} · {_short(away)} {sides['away'][1]:+d}"
-    return "—"
+def _consensus_text(market: str, value: float, home: str, away: str) -> str:
+    if market == "spreads":
+        return _spread_label(value, home, away)
+    if market == "totals":
+        return f"O/U {value:g}"
+    return f"{_short(home)} {value:.1f}%"
+
+
+def best_prices(by_book: BookSides) -> dict[tuple[str, str], set[str]]:
+    """Casas con el mejor precio de cada lado (empates incluidos)."""
+    best: dict[tuple[str, str], set[str]] = {}
+    for (market, outcome), key in BEST_KEY.items():
+        scored = {book: key(*sides[market][outcome]) for book, sides in by_book.items()
+                  if outcome in sides.get(market, {})
+                  and (market == "h2h" or sides[market][outcome][0] is not None)}
+        if len(scored) >= 2:
+            top = max(scored.values())
+            best[(market, outcome)] = {book for book, score in scored.items() if score == top}
+    return best
+
+
+def _price_cell(market: str, outcome: str, sides: dict[str, Sides], is_best: bool) -> str:
+    if outcome not in sides.get(market, {}):
+        return '<td class="muted">—</td>'
+    point, price = sides[market][outcome]
+    if market == "h2h":
+        text = f"{price:+d}"
+    elif market == "spreads":
+        text = f"{point:+g} ({price:+d})"
+    else:
+        text = f"{point:g} ({price:+d})"
+    return f'<td class="num best">★ {text}</td>' if is_best else f'<td class="num">{text}</td>'
+
+
+def _books_table(by_book: BookSides, home: str, away: str) -> str:
+    columns = [("spreads", "home", f"Spread {_short(home)}"), ("spreads", "away", f"Spread {_short(away)}"),
+               ("totals", "over", "Over"), ("totals", "under", "Under"),
+               ("h2h", "home", f"ML {_short(home)}"), ("h2h", "away", f"ML {_short(away)}")]
+    best = best_prices(by_book)
+    order = list(BOOK_NAMES)
+    books = sorted(by_book, key=lambda b: (order.index(b) if b in order else len(order), b))
+    head = "".join(f"<th>{escape(label)}</th>" for _, _, label in columns)
+    rows = "".join(
+        f'<tr><th scope="row">{escape(book_name(book))}</th>'
+        + "".join(_price_cell(m, o, by_book[book], book in best.get((m, o), set())) for m, o, _ in columns)
+        + "</tr>" for book in books)
+    return (f'<details class="books"><summary>Comparar {len(books)} casas · ★ mejor precio de cada lado</summary>'
+            f'<div class="table-wrap"><table class="books-table"><thead><tr><th>Casa</th>{head}</tr></thead>'
+            f'<tbody>{rows}</tbody></table></div></details>')
 
 
 def _sparkline(points: Sequence[LinePoint], market: str) -> str:
@@ -142,19 +192,19 @@ def _game_card(event_id: str, quotes: list[Quote], store: Store, splits: dict[Ga
     q0 = quotes[0]
     home, away = q0.home, q0.away
     start = datetime.fromisoformat(q0.commence_time).astimezone().strftime("%a %d/%m %H:%M")
-    by_market: dict[str, Sides] = defaultdict(dict)
+    by_book: BookSides = defaultdict(lambda: defaultdict(dict))
     for q in quotes:
-        by_market[q.market][q.outcome] = (q.point, q.price)
+        by_book[q.book][q.market][q.outcome] = (q.point, q.price)
     day = game_day(q0.commence_time)
     rows = []
     for market in MARKET_ORDER:
-        if market not in by_market:
+        points = consensus_series(store.book_series(event_id, market))
+        if not points:
             continue
-        points = store.line_history(event_id, q0.book, market)
         split = lookup(splits, away, home, market, day)
         opening = lookup(openers, away, home, market, day)
         rows.append(f'<tr><th scope="row">{MARKET_NAMES[market]}</th>'
-                    f'<td class="num">{escape(_current_text(market, by_market[market], home, away))}</td>'
+                    f'<td class="num">{escape(_consensus_text(market, points[-1].value, home, away))}</td>'
                     f'<td>{_movement(points, market, opening, home, away)}</td><td>{_sparkline(points, market)}</td>'
                     f'<td class="splits">{_splits_cell(split, market, home, away)}</td></tr>')
     chips = "".join(f'<span class="chip {SEVERITY_CLASS[sev]}">{escape(KIND_NAMES[kind])}</span>'
@@ -162,10 +212,10 @@ def _game_card(event_id: str, quotes: list[Quote], store: Store, splits: dict[Ga
     search = escape(f"{home} {away}".lower())
     return (f'<article class="card" data-search="{search}"><header class="card-head">'
             f'<h2>{escape(away)} <span class="muted">@</span> {escape(home)}</h2>'
-            f'<span class="muted">{start} · {escape(q0.book)}</span>{chips}</header>'
-            f'<div class="table-wrap"><table><thead><tr><th>Mercado</th><th>Actual</th><th>Apertura → actual</th>'
-            f'<th>Historia</th><th>Splits (Action Network)</th></tr></thead><tbody>{"".join(rows)}</tbody>'
-            f'</table></div></article>')
+            f'<span class="muted">{start} · consenso de {len(by_book)} casas</span>{chips}</header>'
+            f'<div class="table-wrap"><table><thead><tr><th>Mercado</th><th>Consenso actual</th>'
+            f'<th>Apertura → actual</th><th>Historia (consenso)</th><th>Splits (Action Network)</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>{_books_table(by_book, home, away)}</article>')
 
 
 def _alerts_list(alerts: list) -> str:
@@ -181,7 +231,7 @@ def _alerts_list(alerts: list) -> str:
 def build_dashboard(store: Store, settings: Settings, now: datetime | None = None) -> Path:
     now = now or datetime.now(timezone.utc)
     run_ts = store.latest_quotes_run()
-    quotes = store.quotes_for_run(run_ts) if run_ts else []
+    quotes = store.current_quotes(run_ts) if run_ts else []
     games: dict[str, list[Quote]] = defaultdict(list)
     for q in quotes:
         if datetime.fromisoformat(q.commence_time) > now:
@@ -251,6 +301,10 @@ tbody tr:last-child th, tbody tr:last-child td {{ border-bottom:0; }}
 .legend i {{ display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:5px; vertical-align:-1px; }}
 .flag {{ font-size:12px; margin-top:4px; }}
 .small {{ font-size:11px; margin-top:2px; }}
+.books {{ border-top:1px solid var(--grid); padding:10px 16px 12px; }}
+.books summary {{ cursor:pointer; font-size:13px; font-weight:600; }}
+.books-table {{ margin-top:8px; min-width:680px; }} .books-table th, .books-table td {{ padding:6px 12px; }}
+.best {{ font-weight:700; }}
 .chip {{ display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px;
   border:1px solid var(--border); color:var(--text-primary); }}
 .chip::before {{ content:""; display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:5px;
