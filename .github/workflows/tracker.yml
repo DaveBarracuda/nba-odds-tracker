@@ -1,13 +1,22 @@
 name: NBA odds tracker
 
-# El cron de GitHub se retrasa horas en repos poco activos, así que el job corre en loop
-# ~5.5 h (snapshot cuando toca, en los minutos :00 y :30) y al terminar se relanza a sí mismo
-# con workflow_dispatch. El cron cada 3 h solo es un respaldo por si la cadena se corta.
+# Un snapshot por corrida, disparado por cron cada 30 min. SIN loop y SIN relanzamiento:
+# cada job dura 1-2 minutos en vez de 5.5 h.
+#
+# El patrón anterior —un job de 5.5 h que dormía entre snapshots y al terminar se relanzaba a
+# sí mismo con workflow_dispatch— ocupaba un runner las 24 h del día de forma perpetua. Eso es
+# consumo excesivo de Actions: el repo gemelo de NFL quedó bloqueado por ToS el 2026-11-24.
+#
+# `python -m tracker run` ya decide si toca snapshot de pago (tracker/schedule.py), así que una
+# corrida que no toca solo usa el endpoint de eventos, que es gratis. Si GitHub retrasa los
+# disparos, el tracker avisa por Telegram cuando un hueco pasa de 2.5 h: la cadencia se
+# degrada, no se rompe.
+#
 # Para detenerlo: gh workflow disable tracker.yml
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7 */3 * * *"   # respaldo; los disparos programados quedan en espera mientras corre el loop
+    - cron: "*/30 * * * *"
 
 concurrency:
   group: nba-odds-tracker
@@ -15,15 +24,11 @@ concurrency:
 
 permissions:
   contents: write
-  actions: write
-
-env:
-  LOOP_SECONDS: "19800"   # 5.5 h; el límite de un job es 6 h
 
 jobs:
   tracker:
     runs-on: ubuntu-latest
-    timeout-minutes: 355
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
 
@@ -40,7 +45,7 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Loop de snapshots
+      - name: Snapshot
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -53,27 +58,14 @@ jobs:
         run: |
           git -C data config user.name "github-actions[bot]"
           git -C data config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          save_data() {
-            [ -f data/index.html ] || printf '<meta http-equiv="refresh" content="0; url=dashboard.html">\n' > data/index.html
-            git -C data add -A
-            if git -C data diff --cached --quiet; then return 0; fi
-            # un solo commit reescrito: la base SQLite guarda la historia, el repo no crece
-            git -C data commit -q --amend -m "data: $(date -u +%Y-%m-%dT%H:%MZ)"
-            git -C data push -q --force origin HEAD:data || echo "::warning::push a data falló"
-          }
-          end=$((SECONDS + LOOP_SECONDS))
-          while [ "$SECONDS" -lt "$end" ]; do
-            python -m tracker run || echo "::warning::la corrida falló"
-            save_data
-            now=$(date +%s)
-            wait=$(( (now / 1800 + 1) * 1800 - now + 5 ))   # siguiente :00 o :30
-            left=$(( end - SECONDS ))
-            [ "$wait" -ge "$left" ] && break
-            sleep "$wait"
-          done
+          python -m tracker run || echo "::warning::la corrida falló"
 
-      - name: Relanzar la cadena
-        if: always()   # también tras una cancelación del runner; para detener: gh workflow disable
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run tracker.yml --ref "${{ github.ref_name }}" -R "${{ github.repository }}"
+          [ -f data/index.html ] || printf '<meta http-equiv="refresh" content="0; url=dashboard.html">\n' > data/index.html
+          git -C data add -A
+          if git -C data diff --cached --quiet; then
+            echo "sin cambios en data"
+            exit 0
+          fi
+          # un solo commit reescrito: la base SQLite guarda la historia, el repo no crece
+          git -C data commit -q --amend -m "data: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git -C data push -q --force origin HEAD:data || echo "::warning::push a data falló"

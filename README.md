@@ -66,17 +66,23 @@ Umbrales en `tracker/detectors.py` (`THRESHOLDS`).
 
 ## GitHub Actions (corre 24/7 sin tu PC)
 
-El cron de GitHub se retrasa horas en repos poco activos, así que `.github/workflows/tracker.yml` corre en
-**loop ~5.5 h**: en cada minuto :00 y :30 ejecuta `python -m tracker run` (que decide si toca snapshot de pago)
-y guarda en la rama `data`. Al terminar **se relanza solo** con `workflow_dispatch`. Un cron cada 3 h es
-respaldo por si la cadena se corta (esos disparos aparecen como "cancelled" cuando el loop sigue vivo).
+`.github/workflows/tracker.yml` corre con **cron cada 30 min**, un snapshot por corrida: ejecuta
+`python -m tracker run` (que decide si toca snapshot de pago) y guarda en la rama `data`. Cada job dura
+1-2 minutos.
+
+**Por qué ya no hay loop.** Hasta el 2026-11-24 este workflow corría en un job de 5.5 h que dormía entre
+snapshots y al terminar se relanzaba a sí mismo con `workflow_dispatch`. Eso ocupaba un runner las 24 h del
+día de forma perpetua, que es consumo excesivo de Actions: **el repo gemelo `nfl-odds-tracker` quedó
+bloqueado por ToS ese día**. El loop se cambió por cron normal para no repetirlo aquí.
 
 - Repo **público**: los minutos de Actions son gratis e ilimitados. La API key vive en el secret `ODDS_API_KEY`.
 - Opcionales: secrets `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`; vars `BOOKMAKERS`, `MARKETS`, `MIN_CREDITS_REMAINING`.
 - La rama `data` guarda `odds.sqlite3`, logs y el dashboard en un único commit reescrito en cada corrida.
-- Cambios de código en `main` se aplican en el siguiente eslabón de la cadena (≤ 5.5 h) o al relanzarla.
-- Detener: `gh workflow disable tracker.yml` (y cancelar el run en curso). Reanudar: `gh workflow enable tracker.yml`
-  y `gh workflow run tracker.yml`.
+- Cambios de código en `main` se aplican en la siguiente corrida (≤ 30 min).
+- **La cadencia depende de la puntualidad de GitHub.** Los disparos programados se pueden retrasar; cuando un
+  hueco pasa de 2.5 h el tracker avisa por Telegram. La cadencia se degrada, no se rompe. Si los retrasos
+  resultan inaceptables, la alternativa es un cron de verdad en un servidor propio.
+- Detener: `gh workflow disable tracker.yml`. Reanudar: `gh workflow enable tracker.yml`.
 
 ## Dashboard
 
